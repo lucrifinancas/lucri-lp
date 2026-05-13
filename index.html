@@ -6,7 +6,9 @@
   <title>Lucri Finanças Corporativas | BPO Financeiro e Controladoria para Empresas</title>
   <meta name="description" content="A Lucri transforma o financeiro da sua empresa em ferramenta de crescimento. BPO Financeiro, Controladoria e Consultoria para micro e pequenas empresas. Pare de tomar decisão no achismo." />
   <!-- Montserrat (corpo). Headlines idealmente em Ancress — instalar e adicionar @font-face -->
-  <link rel="preload" as="image" href="./foto-hero.webp" type="image/webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="./foto-hero-1440w.webp" type="image/webp" fetchpriority="high"
+        imagesrcset="./foto-hero-800w.webp 800w, ./foto-hero-1440w.webp 1440w"
+        imagesizes="(max-width: 940px) 100vw, 50vw" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" />
@@ -1006,7 +1008,7 @@
   <!-- NAVBAR -->
   <nav>
     <div class="logo-clip">
-      <img src="./logo-nav.png"
+      <img src="./logo-nav-opt.png"
            alt="Lucri Finanças Corporativas" />
     </div>
     <button type="button" onclick="abrirQuiz()" class="btn btn-primary" style="padding:12px 24px;font-size:13px;">Análise gratuita</button>
@@ -1032,8 +1034,13 @@
     </div>
     <div class="hero-img">
       <picture>
-        <source srcset="./foto-hero.webp" type="image/webp" />
-        <img src="./foto-hero.jpg" alt="Equipe Lucri" width="800" height="600" fetchpriority="high" loading="eager" />
+        <source type="image/webp"
+                srcset="./foto-hero-800w.webp 800w, ./foto-hero-1440w.webp 1440w"
+                sizes="(max-width: 940px) 100vw, 50vw" />
+        <img src="./foto-hero-1440w.jpg"
+             srcset="./foto-hero-800w.jpg 800w, ./foto-hero-1440w.jpg 1440w"
+             sizes="(max-width: 940px) 100vw, 50vw"
+             alt="Equipe Lucri" width="800" height="600" fetchpriority="high" loading="eager" />
       </picture>
     </div>
   </section>
@@ -1481,7 +1488,7 @@
   <footer>
     <div class="footer-inner">
       <div class="logo-clip-footer">
-        <img src="./logo-footer.png"
+        <img src="./logo-footer-opt.png"
              alt="Lucri Finanças Corporativas" />
       </div>
       <div class="footer-social">
