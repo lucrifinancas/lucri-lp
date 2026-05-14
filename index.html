@@ -1509,6 +1509,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <option>Acima de R$300 mil</option>
           </select>
         </div>
+        <div class="form-campo">
+          <label for="f-dor">Maior desafio financeiro hoje</label>
+          <select id="f-dor">
+            <option value="" disabled selected>Selecione...</option>
+            <option>Não sei se estou tendo lucro de verdade</option>
+            <option>O dinheiro entra, mas some sem eu saber pra onde</option>
+            <option>Preciso organizar o financeiro do zero</option>
+            <option>Quero tomar decisões com dados, não no achismo</option>
+          </select>
+        </div>
         <button class="btn btn-primary" id="btn-enviar" style="width:100%;padding:18px;font-size:15px;justify-content:center;" type="button">
           Quero minha análise gratuita
         </button>
@@ -1570,9 +1580,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const whatsapp  = document.getElementById('f-whatsapp').value.trim();
       const empresa   = document.getElementById('f-empresa').value.trim();
       const faturamento = document.getElementById('f-faturamento').value;
+      const dor       = document.getElementById('f-dor').value;
       const erro = document.getElementById('form-erro');
 
-      if (!nome || !whatsapp || !empresa || !faturamento) {
+      if (!nome || !whatsapp || !empresa || !faturamento || !dor) {
         erro.textContent = 'Preencha todos os campos para continuar.';
         erro.style.display = 'block';
         return;
@@ -1588,7 +1599,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           await fetch(APPS_SCRIPT_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(Object.assign({ nome, whatsapp, empresa, faturamento }, window._utms || {})).toString()
+            body: new URLSearchParams(Object.assign({ nome, whatsapp, empresa, faturamento, dor }, window._utms || {})).toString()
           });
         } catch (e) { /* fire-and-forget */ }
       }
@@ -1781,17 +1792,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div class="quiz-step ativo" id="qs-1">
-        <div class="quiz-titulo">Qual é o maior desafio financeiro da sua empresa hoje?</div>
-        <div class="quiz-opcoes">
-          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">A</span>Não sei se estou tendo lucro de verdade</button>
-          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">B</span>O dinheiro entra, mas some sem eu saber pra onde</button>
-          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">C</span>Preciso organizar o financeiro do zero</button>
-          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">D</span>Quero tomar decisões com dados, não no achismo</button>
-        </div>
+        <div class="quiz-titulo">Qual é o seu nome?</div>
+        <input class="quiz-input" type="text" id="q-nome" placeholder="Seu nome completo" autocomplete="name" oninput="validarTexto('q-nome','btn-av-1')" />
         <div class="quiz-nav"><div></div><button class="btn-avancar" id="btn-av-1" disabled onclick="avancar(2)">Próximo →</button></div>
       </div>
 
       <div class="quiz-step" id="qs-2">
+        <div class="quiz-titulo">Qual é o seu WhatsApp?</div>
+        <div class="quiz-sub">Nossa equipe entra em contato em até 1 dia útil.</div>
+        <input class="quiz-input" type="tel" id="q-wpp" placeholder="(41) 9 9999-9999" autocomplete="tel" oninput="validarTexto('q-wpp','btn-av-2')" />
+        <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(1)">← Voltar</button><button class="btn-avancar" id="btn-av-2" disabled onclick="avancar(3)">Próximo →</button></div>
+      </div>
+
+      <div class="quiz-step" id="qs-3">
+        <div class="quiz-titulo">Qual é o nome da sua empresa?</div>
+        <input class="quiz-input" type="text" id="q-empresa" placeholder="Ex: Padaria do João" oninput="validarTexto('q-empresa','btn-av-3')" />
+        <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(2)">← Voltar</button><button class="btn-avancar" id="btn-av-3" disabled onclick="avancar(4)">Próximo →</button></div>
+      </div>
+
+      <div class="quiz-step" id="qs-4">
         <div class="quiz-titulo">Qual é o faturamento mensal da sua empresa?</div>
         <div class="quiz-sub">Aproximado, sem compromisso.</div>
         <div class="quiz-opcoes">
@@ -1800,25 +1819,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <button class="opcao-btn" onclick="selecionarOpcao(this,'faturamento')"><span class="opcao-letra">C</span>R$100 mil a R$300 mil</button>
           <button class="opcao-btn" onclick="selecionarOpcao(this,'faturamento')"><span class="opcao-letra">D</span>Acima de R$300 mil</button>
         </div>
-        <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(1)">← Voltar</button><button class="btn-avancar" id="btn-av-2" disabled onclick="avancar(3)">Próximo →</button></div>
-      </div>
-
-      <div class="quiz-step" id="qs-3">
-        <div class="quiz-titulo">Qual é o seu nome?</div>
-        <input class="quiz-input" type="text" id="q-nome" placeholder="Seu nome completo" autocomplete="name" oninput="validarTexto('q-nome','btn-av-3')" />
-        <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(2)">← Voltar</button><button class="btn-avancar" id="btn-av-3" disabled onclick="avancar(4)">Próximo →</button></div>
-      </div>
-
-      <div class="quiz-step" id="qs-4">
-        <div class="quiz-titulo">Qual é o nome da sua empresa?</div>
-        <input class="quiz-input" type="text" id="q-empresa" placeholder="Ex: Padaria do João" oninput="validarTexto('q-empresa','btn-av-4')" />
         <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(3)">← Voltar</button><button class="btn-avancar" id="btn-av-4" disabled onclick="avancar(5)">Próximo →</button></div>
       </div>
 
       <div class="quiz-step" id="qs-5">
-        <div class="quiz-titulo">Qual é o seu WhatsApp?</div>
-        <div class="quiz-sub">Nossa equipe entra em contato em até 1 dia útil.</div>
-        <input class="quiz-input" type="tel" id="q-wpp" placeholder="(41) 9 9999-9999" autocomplete="tel" oninput="validarTexto('q-wpp','btn-av-5')" />
+        <div class="quiz-titulo">Qual é o maior desafio financeiro da sua empresa hoje?</div>
+        <div class="quiz-opcoes">
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">A</span>Não sei se estou tendo lucro de verdade</button>
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">B</span>O dinheiro entra, mas some sem eu saber pra onde</button>
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">C</span>Preciso organizar o financeiro do zero</button>
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">D</span>Quero tomar decisões com dados, não no achismo</button>
+        </div>
         <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(4)">← Voltar</button><button class="btn-avancar" id="btn-av-5" disabled onclick="enviarQuiz()">Enviar →</button></div>
       </div>
 
