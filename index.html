@@ -1484,7 +1484,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 class="section-title">Descubra onde está<br><span class="grad-text">o rombo no seu financeiro.</span></h2>
       <p class="section-sub">Preencha abaixo. Nossa equipe entra em contato em até 1 dia útil. Conversa rápida e sem compromisso.</p>
 
-      <div class="form-contato-wrap" id="form-wrap">
+      <form class="form-contato-wrap" id="form-wrap">
         <div class="form-grid">
           <div class="form-campo">
             <label for="f-nome">Seu nome</label>
@@ -1519,11 +1519,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <option>Quero tomar decisões com dados, não no achismo</option>
           </select>
         </div>
-        <button class="btn btn-primary" id="btn-enviar" style="width:100%;padding:18px;font-size:15px;justify-content:center;" type="button">
+        <button class="btn btn-primary" id="btn-enviar" style="width:100%;padding:18px;font-size:15px;justify-content:center;" type="submit">
           Quero minha análise gratuita
         </button>
         <p id="form-erro" style="display:none;color:#ff6b6b;font-size:13px;text-align:center;margin-top:8px;"></p>
-      </div>
+      </form>
 
       <div class="form-sucesso" id="form-sucesso">
         <div style="width:64px;height:64px;border-radius:50%;background:rgba(0,235,133,0.1);border:1px solid rgba(0,235,133,0.3);display:flex;align-items:center;justify-content:center;">
@@ -1575,7 +1575,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     // Cole aqui a URL do seu Google Apps Script após fazer o deploy
     const APPS_SCRIPT_URL = 'https://hook.us2.make.com/estfj426kejvn03p1sf2ku4q29n5dcrx';
 
-    document.getElementById('btn-enviar').addEventListener('click', async () => {
+    document.getElementById('form-wrap').addEventListener('submit', async (event) => {
+      event.preventDefault();
+
       const nome      = document.getElementById('f-nome').value.trim();
       const whatsapp  = document.getElementById('f-whatsapp').value.trim();
       const empresa   = document.getElementById('f-empresa').value.trim();
@@ -1593,6 +1595,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const btn = document.getElementById('btn-enviar');
       btn.textContent = 'Enviando...';
       btn.disabled = true;
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({
+        event: 'form_submit',
+        form_id: 'form-wrap',
+        form_name: 'analise_gratuita'
+      }, window._utms || {}));
 
       if (APPS_SCRIPT_URL !== 'COLE_AQUI_A_URL_DO_APPS_SCRIPT') {
         try {
