@@ -467,36 +467,13 @@
       line-height: 1.65;
     }
 
-    /* ── CTA MEIO ── */
-    .cta-meio {
-      padding: 0 24px 96px;
-    }
-
-    .cta-meio-box {
-      max-width: 960px;
-      margin: 0 auto;
-      background: linear-gradient(135deg, rgba(0,208,245,0.12), rgba(0,235,133,0.08));
+    /* ── CARD DESTAQUE (ganha-ganha, garantia, etc.) ── */
+    .card-destaque {
+      background: rgba(0,235,133,0.06);
       border: 1px solid rgba(0,235,133,0.2);
-      border-radius: 24px;
-      padding: 64px 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-    }
-
-    .cta-meio-texto h2 {
-      font-size: 32px;
-      font-weight: 800;
-      line-height: 1.25;
-      margin-bottom: 12px;
-    }
-
-    .cta-meio-texto p {
-      font-size: 15px;
-      color: var(--texto-sub);
-      line-height: 1.6;
-      max-width: 400px;
+      border-radius: 16px;
+      padding: 28px 32px;
+      width: 100%;
     }
 
     /* ── DEPOIMENTOS ── */
@@ -1004,11 +981,18 @@
       .como-grid::before { display: none; }
     }
 
+    @media (max-width: 900px) {
+      nav { padding: 14px 24px; }
+    }
+
     @media (max-width: 600px) {
       .dif-grid { grid-template-columns: 1fr; }
       .como-grid { grid-template-columns: 1fr; }
       nav { padding: 14px 16px; }
       .section { padding: 56px 16px; }
+      .numeros { padding: 48px 16px; }
+      .cta-final { padding: 56px 16px; }
+      .card-destaque { padding: 20px 18px; }
 
       .section-title { font-size: 26px; }
       .section-sub { font-size: 15px; margin-bottom: 32px; }
@@ -1376,7 +1360,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 class="section-title">Não somos uma despesa,<br>somos um <span class="grad-text">investimento.</span></h2>
       <div style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:24px;align-items:center;">
         <p style="font-size:16px;color:var(--texto-sub);line-height:1.75;">Mesmo não sendo sócios, assumimos o risco do seu negócio contigo. Cobramos um honorário variável conforme o resultado mensal — queremos um relacionamento de longo prazo: se o negócio cresce, crescemos juntos. Se o negócio cai, recebemos menos.</p>
-        <div style="background:rgba(0,235,133,0.06);border:1px solid rgba(0,235,133,0.2);border-radius:16px;padding:28px 32px;">
+        <div class="card-destaque">
           <p style="font-size:17px;font-weight:700;color:var(--branco);line-height:1.6;">A Lucri só quer ganhar dinheiro se você ganhar dinheiro.<br><span style="color:var(--texto-sub);font-weight:400;font-size:15px;">Não tem pegadinha, é um genuíno ganha-ganha.</span></p>
         </div>
         <button type="button" onclick="abrirQuiz()" class="btn btn-primary" style="font-size:15px;padding:18px 40px;">

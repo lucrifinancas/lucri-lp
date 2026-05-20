@@ -1,11 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WXTMJP2L');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Captura e repasse de parâmetros UTM -->
+  <script>
+    (function () {
+      var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+      var params = new URLSearchParams(window.location.search);
+      var utms = {};
+
+      UTM_KEYS.forEach(function (key) {
+        var val = params.get(key) || sessionStorage.getItem(key);
+        if (val) {
+          utms[key] = val;
+          sessionStorage.setItem(key, val);
+        }
+      });
+
+      window._utms = utms;
+
+      if (Object.keys(utms).length) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(Object.assign({ event: 'utm_captured' }, utms));
+      }
+
+      function updateWaLinks() {
+        if (!Object.keys(utms).length) return;
+        document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
+          var url = new URL(a.href);
+          Object.keys(utms).forEach(function (k) { url.searchParams.set(k, utms[k]); });
+          a.href = url.toString();
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateWaLinks);
+      } else {
+        updateWaLinks();
+      }
+    })();
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Recebemos seu contato — Lucri Finanças</title>
+  <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" /></noscript>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -580,14 +630,20 @@
   </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXTMJP2L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   <div class="bg-glow"></div>
 
   <!-- NAVBAR -->
   <nav>
     <div class="logo-clip">
-      <img src="./logo-nav.png"
-           alt="Lucri Finanças Corporativas" />
+      <picture>
+        <source srcset="./logo-nav-opt.webp" type="image/webp" />
+        <img src="./logo-nav-opt.png" alt="Lucri Finanças Corporativas" />
+      </picture>
     </div>
     <a href="index.html" class="btn-voltar-nav">← Voltar ao site</a>
   </nav>
