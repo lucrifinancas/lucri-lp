@@ -982,19 +982,22 @@
     .form-sucesso.visivel { display: flex; }
 
     /* ── RESPONSIVO ── */
+    /* Hero colapsa em 900px — abaixo disso as colunas ficariam muito estreitas */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-img { height: 320px; order: -1; }
       .hero-img::before { background: linear-gradient(0deg, var(--noite) 0%, transparent 60%); }
       .hero-content { padding: 40px 24px 60px; }
       .hero-titulo { font-size: 34px; }
+    }
+
+    /* Grids colapsam em 768px (tablet) — mantém layout desktop até 769px */
+    @media (max-width: 768px) {
       .solucao-grid { grid-template-columns: 1fr; }
       .dif-grid { grid-template-columns: repeat(2, 1fr); }
       .dep-grid { grid-template-columns: 1fr; }
       .dor-grid { grid-template-columns: 1fr; }
       .numeros-grid { grid-template-columns: 1fr; gap: 24px; }
-      .cta-meio-box { flex-direction: column; padding: 40px 28px; text-align: center; }
-      .cta-meio-texto p { max-width: 100%; }
       .cta-final-box h2 { font-size: 32px; }
       .antes-depois-grid { grid-template-columns: 1fr; }
       .como-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
@@ -1024,10 +1027,6 @@
       .antes-card, .depois-card { padding: 24px 18px; }
       .dif-card { padding: 22px 18px; }
 
-      .cta-meio-box { padding: 28px 20px; }
-      .cta-meio-texto h2 { font-size: 22px; }
-      .cta-meio-texto p { font-size: 14px; }
-
       .cta-final-box h2 { font-size: 24px; }
 
       .phone-frame { width: min(280px, calc(100vw - 48px)); }
@@ -1045,7 +1044,6 @@
       .section-title { font-size: 23px; }
       .hero-titulo { font-size: 25px; }
       .cta-final-box h2 { font-size: 21px; }
-      .cta-meio-texto h2 { font-size: 20px; }
       .numero-valor { font-size: 38px; }
       .btn { font-size: 13px; padding: 14px 20px; }
     }
@@ -1073,17 +1071,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="hero">
     <div class="hero-content">
       <h1 class="hero-titulo">
-        Você vende.<br>
-        Mas sabe se está<br>
-        tendo <span class="grad-text">lucro de verdade?</span>
+        Você vende mas o dinheiro some. Será que você está tendo <br>
+        <span class="grad-text">lucro de verdade?</span>
+        
       </h1>
       <p class="hero-desc">
-        Faturar sem saber o lucro real é crescer no escuro. A Lucri traz clareza
-        para os seus números, controle para o seu caixa e direção para as suas
-        decisões. Sem contabilês, sem achismo.
+        Faturar sem saber o lucro real é crescer no escuro. A Lucri executa
+        o financeiro do seu negócio, traz clareza para os seus números, controle para o seu caixa
+        e direção para as suas decisões. Sem contabilês, sem achismo.
       </p>
       <div class="hero-btns">
-        <button type="button" onclick="abrirQuiz()" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Quero clareza nos meus números</button>
+        <button type="button" onclick="abrirQuiz()" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Quero clareza dos meus números</button>
         <a href="#solucao" class="btn btn-outline">Ver como funciona</a>
       </div>
     </div>
@@ -1122,8 +1120,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="video-section bg-alt">
     <div class="container center">
       <span class="tag">Conheça a Lucri</span>
-      <h2 class="section-title" style="margin-bottom:8px;">A verdade que ninguém<br><span class="grad-text">no financeiro te conta.</span></h2>
-      <p class="section-sub" style="margin-bottom:0;">Direto ao ponto, do jeito Lucri.</p>
+      <h2 class="section-title" style="margin-bottom:8px;">A solução definitiva para o seu<br><span class="grad-text">financeiro.</span></h2>
+      <p class="section-sub" style="margin-bottom:0;">Competência pra cuidar do seu dinheiro e paz para a sua tomada de decisão.</p>
       <div class="video-center">
         <div class="phone-frame">
           <iframe
@@ -1133,6 +1131,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             title="Lucri Finanças — vídeo"
           ></iframe>
         </div>
+        <p style="max-width:600px;font-size:14px;color:var(--texto-sub);line-height:1.75;text-align:center;">Sócios com mais de uma década de trabalho com gestão financeira, formações em Administração e Contabilidade pela UFPR e UTFPR, diversas especializações na área financeira, histórico como empreendedores multicanal (serviço, produto, digital), que já foram head de finanças em startups, experiências em multinacionais e hoje gerenciam o financeiro de dezenas de negócios.</p>
       </div>
     </div>
   </section>
@@ -1142,7 +1141,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container center">
       <span class="tag">Identificação</span>
       <h2 class="section-title">Isso soa familiar?</h2>
-      <p class="section-sub">Se você respondeu sim para alguma dessas frases, o problema não é o mercado. É o financeiro.</p>
+      <p class="section-sub">Se você respondeu sim para alguma dessas frases, o problema não é o mercado ou azar. É o financeiro.</p>
       <div class="dor-grid" style="margin-bottom:40px;">
         <div class="dor-item">
           <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="15" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
@@ -1150,11 +1149,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="dor-item">
           <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
-          <p>"Misturo conta pessoal com conta da empresa"</p>
+          <p>"Pago contas pessoais na conta da empresa e não sei como mudar"</p>
         </div>
         <div class="dor-item">
           <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-          <p>"Não sei se posso contratar, investir ou cortar agora"</p>
+          <p>"Não sei se posso contratar, investir ou devo cortar agora"</p>
         </div>
         <div class="dor-item">
           <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
@@ -1167,6 +1166,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="dor-item">
           <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l18 18M10.5 10.677A2 2 0 0 0 10 12c0 1.1.9 2 2 2 .469 0 .9-.16 1.243-.43"/><path d="M7.362 7.561A7 7 0 0 0 5 12c0 3.866 3.134 7 7 7a7 7 0 0 0 4.94-2.062"/><path d="M12 5c3.866 0 7 3.134 7 7a7 7 0 0 1-.517 2.651"/></svg></div>
           <p>"Tenho medo de crescer e quebrar junto com o crescimento"</p>
+        </div>
+        <div class="dor-item">
+          <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <p>"Será que as metas comerciais são suficientes pra ter o lucro que quero"</p>
+        </div>
+        <div class="dor-item">
+          <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="12" y2="15"/></svg></div>
+          <p>"Me perco com boletos a pagar e não sei qual capital de giro preciso"</p>
         </div>
       </div>
       <button type="button" onclick="abrirQuiz()" class="btn btn-primary" style="margin-top:8px;">
@@ -1207,7 +1214,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li>Financeiro separado, organizado e funcionando todo dia</li>
             <li>Decide com base em número real: contratar, investir, cortar</li>
             <li>Controle total do caixa, sem susto no fim do mês</li>
-            <li>Cresce com segurança porque tem controle do financeiro</li>
+            <li>Cresce com segurança porque tem clareza e controle do dinheiro</li>
             <li>Equipe presente todos os dias, financeiro e estratégia juntos</li>
           </ul>
         </div>
@@ -1223,20 +1230,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="section" id="solucao">
     <div class="container center">
       <span class="tag">Como a Lucri atua</span>
-      <h2 class="section-title">Não somos só contabilidade.<br>Somos seu <span class="grad-text">aliado estratégico.</span></h2>
-      <p class="section-sub">Atuamos em três frentes para transformar seu financeiro de problema em ferramenta de crescimento.</p>
+      <h2 class="section-title">Não somos só pagadores de boletos.<br>Somos seu <span class="grad-text">aliado estratégico.</span></h2>
+      <p class="section-sub">Atuamos em três frentes para transformar seu financeiro de problema em ferramenta de crescimento. Não tem planos e pacotes, ou é tudo, que vai resolver seu problema, ou é nada e continuará igual.</p>
       <div class="solucao-grid">
         <div class="solucao-card">
           <span class="solucao-num">01</span>
           <h3 class="solucao-titulo">BPO Financeiro</h3>
-          <p class="solucao-desc">Implantamos o Conta Azul no seu negócio e assumimos a operação do dia a dia. Integração bancária automática, cada movimentação categorizada e conciliada em até 24h, sem você precisar tocar em extrato, PDF ou OFX.</p>
+          <p class="solucao-desc">Implantamos nosso sistema no seu negócio e assumimos a operação do dia a dia. Integração bancária automática, cada movimentação categorizada e conciliada, sem você precisar tocar em planilha, extrato ou PDF.</p>
           <ul class="solucao-lista">
-            <li>Implantação do Conta Azul (ERP de gestão financeira)</li>
-            <li>Categorização de todas as receitas e despesas</li>
-            <li>Conciliação bancária automatizada em até 24h</li>
-            <li>Controle e agendamento de contas a pagar</li>
-            <li>Conciliação de cartão de crédito PJ (linha a linha)</li>
-            <li>Armazenamento digital de documentos na nuvem</li>
+            <li>Implantação de ERP de gestão financeira</li>
+            <li>Organização de todas as receitas e despesas</li>
+            <li>Conciliação bancária automatizada e diária</li>
+            <li>Agendamento e estruturação de contas a pagar</li>
+            <li>Lançamento e controle de cartão de crédito PJ (linha a linha)</li>
           </ul>
         </div>
         <div class="solucao-card">
@@ -1245,8 +1251,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="solucao-desc">Com os dados da operação apurados, traduzimos tudo em clareza real. DRE, margem, EBITDA, fluxo de caixa e precificação, em relatórios visuais que o dono entende e usa pra decidir.</p>
           <ul class="solucao-lista">
             <li>Relatório gerencial mensal completo (DRE + gráficos)</li>
-            <li>Lucro bruto, EBITDA e lucro líquido por período</li>
-            <li>Análise e planejamento do fluxo de caixa</li>
+            <li>Margem, EBITDA e lucro líquido por período</li>
+            <li>Visão do fluxo de caixa e capital de giro</li>
             <li>Análise de precificação e ponto de equilíbrio</li>
             <li>Comparativos mensais, trimestrais e semestrais</li>
           </ul>
@@ -1254,12 +1260,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="solucao-card">
           <span class="solucao-num">03</span>
           <h3 class="solucao-titulo">Consultoria Estratégica</h3>
-          <p class="solucao-desc">Somos o braço direito nas decisões. Fazemos o relacionamento com banco, contabilidade e parceiros, e mostramos o caminho certo, sempre com base nos seus números, não no achismo.</p>
+          <p class="solucao-desc">Somos o braço direito nas decisões e o antídoto da solidão do empreendedor. Consultoria estratégica e de relacionamento, sempre com base nos seus números, não no achismo.</p>
           <ul class="solucao-lista">
-            <li>Relacionamento com bancos e acesso a crédito e benefícios PJ</li>
-            <li>Gestão da relação com a contabilidade (fiscal e tributário)</li>
-            <li>Rede de parceiros qualificados pelo histórico da Lucri</li>
+            <li>Consultoria mensal completa e sempre com agenda disponível pra atender</li>
             <li>Conselhos e recomendações baseados nos seus dados reais</li>
+            <li>Plano de ação financeiro alinhado com metas da empresa</li>
+            <li>Relacionamento com bancos, análise de crédito e benefícios PJ</li>
+            <li>Fiscalização e gestão do trabalho com a contabilidade</li>
           </ul>
         </div>
       </div>
@@ -1299,7 +1306,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           </div>
           <h4 class="dif-titulo">Foco em lucro real</h4>
-          <p class="dif-desc">Vamos além de impostos e burocracia. Trabalhamos para aumentar sua margem e lucratividade.</p>
+          <p class="dif-desc">Nosso interesse é genuíno para aumentar sua margem e lucratividade.</p>
         </div>
         <div class="dif-card">
           <div class="dif-icon">
@@ -1330,14 +1337,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="como-num">1</div>
           <div>
             <div class="como-titulo">Conversa inicial</div>
-            <p class="como-desc">Você fala com nossa equipe pelo WhatsApp. Entendemos seu negócio, os desafios e o que precisa organizar.</p>
+            <p class="como-desc">Você fala com nossa equipe pelo WhatsApp diariamente e reunião presencial em vídeo quando precisar. Entendemos seu negócio, os desafios e o que precisa organizar.</p>
           </div>
         </div>
         <div class="como-step">
           <div class="como-num">2</div>
           <div>
             <div class="como-titulo">Onboarding</div>
-            <p class="como-desc">Nos primeiros 60 a 90 dias, mergulhamos no seu negócio. Implantamos o Conta Azul, estruturamos categorias, integramos o banco e montamos o mapa financeiro do zero.</p>
+            <p class="como-desc">Nos primeiros 60 dias, mergulhamos no seu negócio. Implantamos o sistema, estruturamos categorias, integramos o banco e montamos o mapa financeiro do zero.</p>
           </div>
         </div>
         <div class="como-step">
@@ -1351,7 +1358,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="como-num">4</div>
           <div>
             <div class="como-titulo">Acompanhamento mensal</div>
-            <p class="como-desc">Grupo de WhatsApp com resposta em até 30 minutos + reunião mensal de 1h30 com relatório completo do financeiro e recomendações estratégicas.</p>
+            <p class="como-desc">Grupo de WhatsApp com resposta em até 30 minutos + reunião mensal com relatório completo do financeiro e recomendações estratégicas.</p>
           </div>
         </div>
       </div>
@@ -1362,16 +1369,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- CTA MEIO -->
-  <div class="cta-meio">
-    <div class="cta-meio-box">
-      <div class="cta-meio-texto">
-        <h2>Se o dinheiro some e você não sabe pra onde foi,<br><span class="grad-text">o problema não é o imposto.</span></h2>
-        <p>É hora de ter clareza. Fale com a Lucri e descubra onde está o rombo no financeiro da sua empresa.</p>
+  <!-- QUANTO CUSTA -->
+  <section class="section">
+    <div class="container center">
+      <span class="tag">Quanto custa</span>
+      <h2 class="section-title">Não somos uma despesa,<br>somos um <span class="grad-text">investimento.</span></h2>
+      <div style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:24px;align-items:center;">
+        <p style="font-size:16px;color:var(--texto-sub);line-height:1.75;">Mesmo não sendo sócios, assumimos o risco do seu negócio contigo. Cobramos um honorário variável conforme o resultado mensal — queremos um relacionamento de longo prazo: se o negócio cresce, crescemos juntos. Se o negócio cai, recebemos menos.</p>
+        <div style="background:rgba(0,235,133,0.06);border:1px solid rgba(0,235,133,0.2);border-radius:16px;padding:28px 32px;">
+          <p style="font-size:17px;font-weight:700;color:var(--branco);line-height:1.6;">A Lucri só quer ganhar dinheiro se você ganhar dinheiro.<br><span style="color:var(--texto-sub);font-weight:400;font-size:15px;">Não tem pegadinha, é um genuíno ganha-ganha.</span></p>
+        </div>
+        <button type="button" onclick="abrirQuiz()" class="btn btn-primary" style="font-size:15px;padding:18px 40px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Quero descobrir quanto tenho que investir
+        </button>
       </div>
-      <button type="button" onclick="abrirQuiz()" class="btn btn-primary" style="white-space:nowrap;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Quero descobrir onde está o rombo</button>
     </div>
-  </div>
+  </section>
 
   <!-- DEPOIMENTOS -->
   <section class="section bg-alt">
@@ -1446,26 +1460,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section" id="faq">
-    <div class="container center">
-      <span class="tag">Dúvidas frequentes</span>
-      <h2 class="section-title">Perguntas que a gente<br><span class="grad-text">ouve toda semana</span></h2>
-      <p class="section-sub">Respostas diretas, sem enrolação.</p>
-      <div style="max-width:720px;margin:0 auto;text-align:left;display:flex;flex-direction:column;gap:12px;" id="faq-lista"></div>
-    </div>
-  </section>
-
   <!-- GARANTIA -->
-  <section class="section bg-alt">
+  <section class="section">
     <div class="container center">
       <div style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px;">
+        <span class="tag">Garantia</span>
         <div style="width:64px;height:64px;border-radius:50%;background:rgba(0,235,133,0.1);border:1px solid rgba(0,235,133,0.3);display:flex;align-items:center;justify-content:center;">
           <svg viewBox="0 0 24 24" fill="none" stroke="#00EB85" stroke-width="2" width="30" height="30"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
         </div>
         <h2 class="section-title" style="margin:0;">Garantia de <span class="grad-text">90 dias</span></h2>
         <p style="font-size:17px;color:var(--texto-sub);line-height:1.75;text-align:center;">
-          Se em 90 dias a Lucri não entregar tudo o que foi prometido: BPO operando, conciliações, relatório gerencial e acompanhamento,
+          Sim, 90 dias. Isso mesmo, nada de 7 dias do consumidor. Se em 90 dias a Lucri não entregar tudo o que foi prometido: BPO operando, conciliações, relatório gerencial e acompanhamento,
           <strong style="color:var(--branco);">devolvemos 100% do que você pagou.</strong>
         </p>
         <p style="font-size:14px;color:rgba(255,255,255,0.4);">Simples assim. A gente confia no trabalho.</p>
@@ -1477,11 +1482,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container center">
+      <span class="tag">Dúvidas frequentes</span>
+      <h2 class="section-title">Perguntas que a gente<br><span class="grad-text">ouve toda semana</span></h2>
+      <p class="section-sub">Respostas diretas, sem enrolação.</p>
+      <div style="max-width:720px;margin:0 auto;text-align:left;display:flex;flex-direction:column;gap:12px;" id="faq-lista"></div>
+    </div>
+  </section>
+
   <!-- FORMULÁRIO CONTATO -->
   <section class="section bg-alt" id="contato">
     <div class="container center">
       <span class="tag">Análise gratuita</span>
-      <h2 class="section-title">Descubra onde está<br><span class="grad-text">o rombo no seu financeiro.</span></h2>
+      <h2 class="section-title">Descubra a verdade sobre<br><span class="grad-text">o seu financeiro.</span></h2>
       <p class="section-sub">Preencha abaixo. Nossa equipe entra em contato em até 1 dia útil. Conversa rápida e sem compromisso.</p>
 
       <form class="form-contato-wrap" id="form-wrap">
@@ -1631,31 +1646,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const faqs = [
       {
         p: "Como é feito o acesso à conta bancária? É seguro?",
-        r: "A Lucri cria um usuário com permissão limitada no seu banco (Stone, Itaú, Bradesco, etc.): apenas visualizar extrato e agendar pagamentos. A integração bancária conecta automaticamente ao Conta Azul: as movimentações aparecem no sistema em até 24h, sem baixar extrato. Nenhuma transferência sai sem aprovação do dono."
+        r: "A Lucri cria um usuário com permissão limitada no seu banco (Digital, Tradicional ou Cooperativa): apenas visualizar extrato e agendar pagamentos. Nenhuma transferência sai sem aprovação do dono."
       },
       {
         p: "Quanto custa? Como funciona o pagamento?",
-        r: "O honorário é variável, atrelado à receita bruta da empresa, sem valor fixo que pese todo mês. Para empresas com faturamento em torno de R$70k/mês, o exemplo é ~4%. Para empresas maiores, o percentual é menor e negociado. Já está incluso tudo: sistema de gestão financeira, relatórios gerenciais e toda a operação. Sem custos extras com tecnologia."
+        r: "O honorário mensal é variável, sem valor fixo que pese todo mês. Temos clientes que contrataram a Lucri com faturamento desde 20 mil até 1 milhão por mês. Funciona bem para todos, e os clientes sentem que é uma relação justa."
+      },
+      {
+        p: "Tem fidelidade?",
+        r: "NÃO. Não somos academia pra te amarrar em um contrato de 12 meses. Pelo contrário, queremos que só fique conosco quem realmente quer, por isso você cancela quando quiser, honrando somente o mês de trabalho."
       },
       {
         p: "Como funciona o acompanhamento no dia a dia?",
-        r: "Grupo de WhatsApp com Guilherme e Izabelle diretamente, sem passar por atendente. Respondemos em até 30 minutos. Além disso, fazemos pelo menos uma reunião mensal de 1h30 com relatório completo do mês anterior: lucro, margem, fluxo de caixa, recomendações e próximos passos."
+        r: "Grupo de WhatsApp diretamente com os donos da Lucri, sem passar por atendente. Respondemos rapidamente e sempre temos agenda disponível para ligação ou atendimento presencial na nossa sede."
       },
       {
         p: "Vocês substituem o contador ou trabalham junto?",
-        r: "Trabalhamos junto. A Lucri cuida da gestão financeira: BPO, controladoria e consultoria. A contabilidade cuida da parte fiscal e obrigações legais. A gente compartilha todos os documentos, extratos e conciliações com o contador da empresa para tudo ficar alinhado."
+        r: "O que você preferir, trabalhamos junto com sua contabilidade de confiança ou podemos assumir. A gente compartilha todos os documentos, extratos e conciliações com o contador da empresa para tudo ficar alinhado."
       },
       {
         p: "Quanto tempo leva para ver resultado?",
-        r: "Nos primeiros 60 a 90 dias, é o onboarding, onde estruturamos tudo. Esse é o período mais intenso. Depois que a base está montada, o acompanhamento flui e as decisões ficam mais rápidas e seguras. A maioria dos clientes já sente a diferença no primeiro mês, com o primeiro relatório gerencial."
+        r: "Nos primeiros 60 a 90 dias, é o onboarding, onde estruturamos tudo. Esse é o período mais intenso. Depois que a base está montada, o acompanhamento flui e as decisões ficam mais rápidas e seguras. A maioria dos clientes já sentem uma grande diferença no primeiro mês."
       },
       {
         p: "Funciona pra qualquer tipo de negócio?",
         r: "Sim. Atendemos restaurantes, hamburguerias, cafeterias, e-commerces, barbearias, clínicas, dentistas, psicólogos, agências de marketing, startups, distribuidoras e mais. A base do serviço é a mesma, o que muda é como adaptamos para o fluxo de cada negócio."
-      },
-      {
-        p: "Tem garantia?",
-        r: "Sim, 90 dias. Se a Lucri não entregar tudo o que foi prometido nesse período, devolvemos 100% do valor pago. A gente confia no trabalho."
       }
     ];
 
