@@ -56,7 +56,7 @@
   <link rel="preload" as="image" href="./foto-hero-800w.webp" type="image/webp" fetchpriority="high"
         imagesrcset="./foto-hero-450w.webp 450w, ./foto-hero-800w.webp 800w, ./foto-hero-1440w.webp 1440w"
         imagesizes="(max-width: 940px) 100vw, 50vw" />
-  <link rel="preconnect" href="https://www.youtube.com" />
+  <link rel="dns-prefetch" href="https://img.youtube.com" />
   <link rel="preconnect" href="https://www.google-analytics.com" />
   <link rel="preconnect" href="https://static.doubleclick.net" />
   <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
@@ -518,25 +518,6 @@
 
     .google-badge .nota { color: var(--verde); font-weight: 800; font-size: 16px; }
     .google-badge .total { color: var(--texto-sub); font-size: 13px; }
-
-    .dep-card-skeleton {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 16px;
-      padding: 32px 28px;
-      min-height: 200px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .skel {
-      background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.4s infinite;
-      border-radius: 6px;
-    }
-    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
 
     .dep-google-link {
       display: inline-flex;
@@ -1025,7 +1006,7 @@
 
       .solucao-card { padding: 24px 18px; }
       .dep-card { padding: 24px 18px; }
-      .dep-card-skeleton { padding: 24px 18px; }
+
       .antes-card, .depois-card { padding: 24px 18px; }
       .dif-card { padding: 22px 18px; }
 
@@ -1063,7 +1044,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="logo-clip">
       <picture>
         <source srcset="./logo-nav-opt.webp" type="image/webp" />
-        <img src="./logo-nav-opt.png" alt="Lucri Finanças Corporativas" />
+        <img src="./logo-nav-opt.png" alt="Lucri Finanças Corporativas" width="400" height="400" />
       </picture>
     </div>
     <button type="button" onclick="abrirQuiz()" class="btn btn-primary" style="padding:12px 24px;font-size:13px;">Análise gratuita</button>
@@ -1125,13 +1106,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 class="section-title" style="margin-bottom:8px;">A solução definitiva para o seu<br><span class="grad-text">financeiro.</span></h2>
       <p class="section-sub" style="margin-bottom:0;">Competência pra cuidar do seu dinheiro e paz para a sua tomada de decisão.</p>
       <div class="video-center">
-        <div class="phone-frame">
-          <iframe
-            src="https://www.youtube.com/embed/rfmbydpmWdo?rel=0&modestbranding=1"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            title="Lucri Finanças — vídeo"
-          ></iframe>
+        <div class="phone-frame" id="yt-container" style="cursor:pointer;" onclick="carregarYoutube()">
+          <img
+            src="https://img.youtube.com/vi/rfmbydpmWdo/hqdefault.jpg"
+            alt="Vídeo Lucri Finanças — clique para assistir"
+            loading="lazy"
+            width="480"
+            height="360"
+            style="width:100%;height:100%;object-fit:cover;display:block;"
+          />
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.25);">
+            <svg viewBox="0 0 68 48" width="56" height="40"><path fill="#f00" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z"/><path fill="#fff" d="M45 24 27 14v20"/></svg>
+          </div>
         </div>
         <p style="max-width:600px;font-size:14px;color:var(--texto-sub);line-height:1.75;text-align:center;">Sócios com mais de uma década de trabalho com gestão financeira, formações em Administração e Contabilidade pela UFPR e UTFPR, diversas especializações na área financeira, histórico como empreendedores multicanal (serviço, produto, digital), que já foram head de finanças em startups, experiências em multinacionais e hoje gerenciam o financeiro de dezenas de negócios.</p>
       </div>
@@ -1572,7 +1558,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="logo-clip-footer">
         <picture>
           <source srcset="./logo-footer-opt.webp" type="image/webp" />
-          <img src="./logo-footer-opt.png" alt="Lucri Finanças Corporativas" />
+          <img src="./logo-footer-opt.png" alt="Lucri Finanças Corporativas" width="400" height="400" loading="lazy" />
         </picture>
       </div>
       <div class="footer-social">
@@ -1957,6 +1943,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
 
       window.location.href = 'obrigado.html';
+    }
+
+    function carregarYoutube() {
+      const c = document.getElementById('yt-container');
+      c.innerHTML = '<iframe src="https://www.youtube.com/embed/rfmbydpmWdo?rel=0&modestbranding=1&autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Lucri Finanças — vídeo" style="width:100%;height:100%;border:none;display:block;"></iframe>';
+      c.onclick = null;
+      c.style.cursor = 'default';
     }
   </script>
 
