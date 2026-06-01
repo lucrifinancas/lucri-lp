@@ -108,7 +108,7 @@
       background-clip: text;
     }
 
-    .section { padding: 96px 24px; }
+    .section { padding: 64px 24px; }
     .container { max-width: 1080px; margin: 0 auto; }
     .center { text-align: center; }
 
@@ -138,7 +138,7 @@
       color: var(--texto-sub);
       line-height: 1.7;
       max-width: 580px;
-      margin: 0 auto 56px;
+      margin: 0 auto 40px;
     }
 
     /* ── BOTÕES ── */
@@ -282,7 +282,7 @@
     .numeros {
       border-top: 1px solid rgba(255,255,255,0.06);
       border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding: 72px 24px;
+      padding: 52px 24px;
     }
 
     .numeros-grid {
@@ -375,10 +375,17 @@
       padding: 36px 28px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
       position: relative;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.07);
+      text-align: left;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .solucao-card:hover {
+      border-color: rgba(0,235,133,0.25);
+      background: rgba(0,235,133,0.03);
     }
 
     .solucao-card::before {
@@ -397,9 +404,25 @@
       opacity: 0.6;
     }
 
+    .solucao-titulo-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .solucao-titulo-num {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--verde);
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+
     .solucao-titulo {
       font-size: 20px;
       font-weight: 800;
+      line-height: 1.25;
     }
 
     .solucao-desc {
@@ -440,7 +463,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      max-width: 760px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
@@ -452,38 +475,48 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, background 0.2s;
+      text-align: left;
     }
 
     .dif-card:hover {
       border-color: rgba(0,235,133,0.3);
+      background: rgba(0,235,133,0.04);
+    }
+
+    .dif-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
 
     .dif-icon {
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       border-radius: 10px;
       background: rgba(0,235,133,0.08);
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
 
     .dif-icon svg {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       color: var(--verde);
     }
 
     .dif-titulo {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
+      line-height: 1.35;
     }
 
     .dif-desc {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--texto-sub);
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
     /* ── CARD DESTAQUE (ganha-ganha, garantia, etc.) ── */
@@ -556,17 +589,22 @@
 
     .dep-texto {
       font-size: 14px;
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.75);
       line-height: 1.75;
-      flex: 1;
+      text-align: left;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 16px;
     }
 
     .dep-autor {
       display: flex;
       align-items: center;
       gap: 12px;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      padding-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    .dep-autor-info .estrelas {
+      margin-top: 6px;
     }
 
     .dep-avatar {
@@ -596,10 +634,10 @@
 
     /* ── CTA FINAL ── */
     .cta-final {
-      padding: 96px 24px;
+      padding: 64px 24px;
     }
 
-    .cta-final-box {
+.cta-final-box {
       max-width: 700px;
       margin: 0 auto;
       text-align: center;
@@ -758,59 +796,53 @@
     .como-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      max-width: 960px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .como-grid::before {
-      content: '';
-      position: absolute;
-      top: 27px;
-      left: calc(12.5% + 20px);
-      right: calc(12.5% + 20px);
-      height: 1px;
-      background: linear-gradient(90deg, var(--azul), var(--verde));
-      opacity: 0.25;
+      max-width: 1000px;
+      margin: 0 auto 48px;
+      gap: 16px;
     }
 
     .como-step {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 28px 20px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      padding: 0 16px;
-      text-align: center;
+      gap: 14px;
+      text-align: left;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .como-step:hover {
+      border-color: rgba(0,235,133,0.25);
+      background: rgba(0,235,133,0.03);
+    }
+
+    .como-titulo-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
     }
 
     .como-num {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      background: rgba(0,235,133,0.08);
-      border: 1px solid rgba(0,235,133,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 17px;
-      font-weight: 800;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
       color: var(--verde);
+      opacity: 0.7;
       flex-shrink: 0;
-      position: relative;
-      z-index: 1;
     }
 
     .como-titulo {
       font-size: 15px;
       font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 6px;
+      line-height: 1.35;
     }
 
     .como-desc {
       font-size: 13px;
       color: var(--texto-sub);
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
     /* ── FAQ ── */
@@ -979,8 +1011,7 @@
       .numeros-grid { grid-template-columns: 1fr; gap: 24px; }
       .cta-final-box h2 { font-size: 32px; }
       .antes-depois-grid { grid-template-columns: 1fr; }
-      .como-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-      .como-grid::before { display: none; }
+      .como-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 900px) {
@@ -1057,12 +1088,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="hero">
     <div class="hero-content">
       <h1 class="hero-titulo">
-        Você vende mas o dinheiro some. Será que você está tendo <br>
-        <span class="grad-text">lucro de verdade?</span>
+        Você vende mas o dinheiro some. <span class="grad-text">Será que você está tendo lucro de verdade?</span>
         
       </h1>
       <p class="hero-desc">
-        Faturar sem saber o lucro real é crescer no escuro. A Lucri executa o seu financeiro, traz clareza para os seus números e controla o seu caixa para facilitar decisões. Sem contabilês, sem achismo.
+        Faturar sem saber o lucro real é crescer no escuro. A Lucri organiza seu financeiro, traz clareza para os seus números e facilita as suas decisões. Sem contabilês, sem achismo.
       </p>
       <div class="hero-btns">
         <button type="button" onclick="abrirQuiz()" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Quero clareza dos meus números</button>
@@ -1105,7 +1135,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container center">
       <span class="tag">Conheça a Lucri</span>
       <h2 class="section-title" style="margin-bottom:8px;">A solução definitiva para o seu<br><span class="grad-text">financeiro.</span></h2>
-      <p class="section-sub" style="margin-bottom:0;">Competência pra cuidar do seu dinheiro e paz para a sua tomada de decisão.</p>
       <div class="video-center">
         <div class="phone-frame">
           <iframe loading="lazy" title="VSL Lucri Finanças"
@@ -1114,7 +1143,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen; clipboard-write">
           </iframe>
         </div>
-        <p style="max-width:600px;font-size:14px;color:var(--texto-sub);line-height:1.75;text-align:center;">Sócios com mais de uma década de trabalho com gestão financeira, formações em Administração e Contabilidade pela UFPR e UTFPR, diversas especializações na área financeira, histórico como empreendedores multicanal (serviço, produto, digital), que já foram head de finanças em startups, experiências em multinacionais e hoje gerenciam o financeiro de dezenas de negócios.</p>
+        <ul style="max-width:600px;font-size:14px;color:var(--texto-sub);line-height:1.75;text-align:left;list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;">
+          <li>✦ Sócios com +10 de anos trabalhando com gestão financeira</li>
+          <li>✦ Formação em finanças por instituições como UFPR e UTFPR</li>
+          <li>✦ Experiências corporativas em multinacionais e startups</li>
+          <li>✦ Especialistas em liderar finanças de pequenos e médios negócios</li>
+        </ul>
+        <p style="font-size:15px;color:var(--texto-sub);line-height:1.7;max-width:520px;">Competência pra cuidar do seu dinheiro e paz para a sua tomada de decisão.</p>
         <button type="button" onclick="abrirQuiz()" class="btn btn-primary" style="font-size:15px;padding:18px 40px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Quero parar de perder dinheiro agora</button>
       </div>
     </div>
@@ -1171,9 +1206,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             Sem a Lucri
           </div>
           <ul class="ad-lista">
-            <li>Não sabe se o mês fechou com lucro ou prejuízo</li>
+            <li>Não sabe se teve lucro ou prejuízo</li>
             <li>Mistura conta pessoal com conta da empresa</li>
-            <li>Decide no achismo: "acho que posso contratar..."</li>
+            <li>Decide sozinho no achismo: "acho que posso contratar..."</li>
             <li>Medo de crescer porque não controla o financeiro</li>
           </ul>
         </div>
@@ -1185,12 +1220,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <ul class="ad-lista">
             <li>Sabe exatamente quanto sobrou e de onde veio cada real</li>
             <li>Financeiro separado, organizado e funcionando todo dia</li>
-            <li>Decide com ajuda da Lucri, baseado em número real: contratar, investir, cortar</li>
+            <li>Decide com ajuda da Lucri, quando contratar e como investir</li>
             <li>Cresce com segurança porque tem clareza e controle do dinheiro</li>
           </ul>
         </div>
       </div>
-      <p class="section-sub" style="margin-bottom:32px;">Boa parte dos pequenos e médios empresários que chegam à Lucri estão nesse primeiro quadro. Isso muda.</p>
+      <p class="section-sub" style="margin-bottom:32px;">Boa parte dos empresários que chegam à Lucri estão nesse primeiro quadro. Isso muda.</p>
       <button type="button" onclick="abrirQuiz()" class="btn btn-primary" style="margin-top:16px;">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         Quero estar no segundo quadro
@@ -1206,18 +1241,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="section-sub">Atuamos em três frentes para transformar seu financeiro de problema em ferramenta de crescimento. Não tem planos e pacotes, ou é tudo, que vai resolver seu problema, ou é nada e continuará igual.</p>
       <div class="solucao-grid">
         <div class="solucao-card">
-          <span class="solucao-num">01</span>
-          <h3 class="solucao-titulo">BPO Financeiro</h3>
+          <div class="solucao-titulo-wrap">
+            <span class="solucao-titulo-num">01.</span>
+            <h3 class="solucao-titulo">BPO Financeiro</h3>
+          </div>
           <p class="solucao-desc">Implantamos nosso sistema no seu negócio e assumimos a operação do dia a dia. Contas à pagar/receber, cada movimentação categorizada e conciliada, organização completa sem você precisar tocar em planilha, extrato ou PDF.</p>
         </div>
         <div class="solucao-card">
-          <span class="solucao-num">02</span>
-          <h3 class="solucao-titulo">Controladoria e Indicadores</h3>
+          <div class="solucao-titulo-wrap">
+            <span class="solucao-titulo-num">02.</span>
+            <h3 class="solucao-titulo">Controladoria e Indicadores</h3>
+          </div>
           <p class="solucao-desc">Com os dados da operação apurados, traduzimos tudo em clareza real. DRE, margem, EBITDA, fluxo de caixa e precificação, em relatórios visuais que o dono entende e usa pra decidir.</p>
         </div>
         <div class="solucao-card">
-          <span class="solucao-num">03</span>
-          <h3 class="solucao-titulo">Consultoria Estratégica</h3>
+          <div class="solucao-titulo-wrap">
+            <span class="solucao-titulo-num">03.</span>
+            <h3 class="solucao-titulo">Consultoria Estratégica</h3>
+          </div>
           <p class="solucao-desc">Somos o braço direito nas decisões e o antídoto da solidão do empreendedor. Consultoria estratégica e de relacionamento bem próximo ao dono, sempre com base nos seus números, não no achismo.</p>
         </div>
       </div>
@@ -1232,31 +1273,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="section-sub">A maioria cuida do básico. A Lucri vai além: analisa, explica e mostra o caminho.</p>
       <div class="dif-grid">
         <div class="dif-card">
-          <div class="dif-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <div class="dif-header">
+            <div class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <h4 class="dif-titulo">Simples e estratégico, não só operacional</h4>
           </div>
-          <h4 class="dif-titulo">Simples e estratégico, não só operacional</h4>
           <p class="dif-desc">Sem "contabilês". Você entenderá tudo, não entregamos só relatório. Analisamos, explicamos e mostramos o que você precisa fazer.</p>
         </div>
         <div class="dif-card">
-          <div class="dif-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div class="dif-header">
+            <div class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h4 class="dif-titulo">Presença no dia a dia</h4>
           </div>
-          <h4 class="dif-titulo">Presença no dia a dia</h4>
           <p class="dif-desc">Não somos um serviço distante. Estamos presentes no financeiro da sua empresa todos os dias.</p>
         </div>
         <div class="dif-card">
-          <div class="dif-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div class="dif-header">
+            <div class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h4 class="dif-titulo">A verdade que poucos falam</h4>
           </div>
-          <h4 class="dif-titulo">A verdade que poucos falam</h4>
           <p class="dif-desc">Mostramos os erros que você não está enxergando. Crescimento vem com verdade, não com conforto.</p>
         </div>
         <div class="dif-card">
-          <div class="dif-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          <div class="dif-header">
+            <div class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+            <h4 class="dif-titulo">Visão de dono</h4>
           </div>
-          <h4 class="dif-titulo">Visão de dono</h4>
           <p class="dif-desc">Pensamos como sócios estratégicos e trazemos recomendações. Cada decisão é baseada no impacto financeiro real do seu negócio.</p>
         </div>
       </div>
@@ -1270,32 +1311,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 class="section-title">Do primeiro contato ao<br><span class="grad-text">acompanhamento todo dia.</span></h2>
       <div class="como-grid">
         <div class="como-step">
-          <div class="como-num">1</div>
-          <div>
+          <div class="como-titulo-wrap">
+            <span class="como-num">01.</span>
             <div class="como-titulo">Conversa inicial</div>
-            <p class="como-desc">Você fala com nossa equipe, entendemos seu negócio, os desafios e o que precisa organizar.</p>
           </div>
+          <p class="como-desc">Você fala com nossa equipe, entendemos seu negócio, os desafios e o que precisa organizar.</p>
         </div>
         <div class="como-step">
-          <div class="como-num">2</div>
-          <div>
+          <div class="como-titulo-wrap">
+            <span class="como-num">02.</span>
             <div class="como-titulo">Onboarding</div>
-            <p class="como-desc">Nos primeiros 60 dias, mergulhamos inteiramente no seu negócio. Desde sistema até banco.</p>
           </div>
+          <p class="como-desc">Nos primeiros 60 dias, mergulhamos inteiramente no seu negócio. Desde sistema até banco.</p>
         </div>
         <div class="como-step">
-          <div class="como-num">3</div>
-          <div>
+          <div class="como-titulo-wrap">
+            <span class="como-num">03.</span>
             <div class="como-titulo">Operação diária</div>
-            <p class="como-desc">A Lucri assume o financeiro do dia a dia e te mantém informado de tudo.</p>
           </div>
+          <p class="como-desc">A Lucri assume o financeiro do dia a dia e te mantém informado de tudo.</p>
         </div>
         <div class="como-step">
-          <div class="como-num">4</div>
-          <div>
+          <div class="como-titulo-wrap">
+            <span class="como-num">04.</span>
             <div class="como-titulo">Acompanhamento contínuo</div>
-            <p class="como-desc">Grupo de contato com resposta rápida + reunião mensal com relatório completo.</p>
           </div>
+          <p class="como-desc">Grupo de contato com resposta rápida + reunião mensal com relatório completo.</p>
         </div>
       </div>
       <p class="section-sub" style="margin-bottom:32px;margin-top:40px;">Sem burocracia pra começar. Em poucos dias, a Lucri já está cuidando do financeiro da sua empresa.</p>
@@ -1341,54 +1382,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- Depoimentos fixos -->
       <div class="dep-grid">
         <div class="dep-card">
-          <div class="estrelas">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="dep-texto">"Pessoal extremamente profissional, confio minhas finanças de olhos fechados."</p>
           <div class="dep-autor">
             <div class="dep-avatar">JP</div>
-            <div>
+            <div class="dep-autor-info">
               <div class="dep-nome">Jayder Proença</div>
               <div class="dep-empresa">Produção Visual Proença</div>
+              <div class="estrelas">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
             </div>
           </div>
+          <p class="dep-texto">Pessoal extremamente profissional, confio minhas finanças de olhos fechados. Sempre buscam maneiras justas de não pagarmos impostos indevidos. O caixa da minha empresa aumentou cerca de 22% todos os meses, depois que eles entraram na minha vida.</p>
         </div>
         <div class="dep-card">
-          <div class="estrelas">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="dep-texto">A Lucri me ajudou a enxergar meu negócio em uma perspectiva inovadora. Me auxiliou a clarear os pensamentos, entender prioridades e criar planos para o negócio. A vida de empreendedor é muito solitária e com eles eu conseguia compartilhar ideias, identificar os problemas e achar as soluções de forma confiante. Indico muito!</p>
           <div class="dep-autor">
             <div class="dep-avatar">LA</div>
-            <div>
+            <div class="dep-autor-info">
               <div class="dep-nome">Laura</div>
               <div class="dep-empresa">Haus Climatização</div>
+              <div class="estrelas">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
             </div>
           </div>
+          <p class="dep-texto">A Lucri me ajudou a enxergar meu negócio em uma perspectiva inovadora. Me auxiliou a clarear os pensamentos, entender prioridades e criar planos para o negócio. A vida de empreendedor é muito solitária e com eles eu conseguia compartilhar ideias, identificar os problemas e achar as soluções de forma confiante. Indico muito!</p>
         </div>
         <div class="dep-card">
-          <div class="estrelas">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="dep-texto">A Lucri é tipo aquele amigo que sempre tem uma resposta pra tudo, só que, em vez de palpites duvidosos, eles entregam soluções certeiras e deixam nossa vida contábil, fiscal e financeira muito mais tranquila! Além de extremamente competentes, são um casal incrível, que compartilham de valores lindos! Não sabemos como o Açaí do Beco sobrevivia sem eles antes! 💛</p>
           <div class="dep-autor">
             <div class="dep-avatar">NA</div>
-            <div>
+            <div class="dep-autor-info">
               <div class="dep-nome">Nathally</div>
               <div class="dep-empresa">Açaí do Beco</div>
+              <div class="estrelas">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#00EB85"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
             </div>
+          </div>
+          <p class="dep-texto">A Lucri é tipo aquele amigo que sempre tem uma resposta pra tudo, só que, em vez de palpites duvidosos, eles entregam soluções certeiras e deixam nossa vida contábil, fiscal e financeira muito mais tranquila! Além de extremamente competentes, são um casal incrível, que compartilham de valores lindos! Não sabemos como o Açaí do Beco sobrevivia sem eles antes! 💛</p>
+        </div
           </div>
         </div>
       </div>
@@ -1410,8 +1453,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <h2 class="section-title" style="margin:0;">Garantia de <span class="grad-text">90 dias</span></h2>
         <p style="font-size:17px;color:var(--texto-sub);line-height:1.75;text-align:center;">
-          Sim, 90 dias. Isso mesmo, nada de 7 dias do consumidor. Se em 90 dias a Lucri não entregar tudo o que foi prometido: BPO operando, conciliações, relatório gerencial e acompanhamento,
-          <strong style="color:var(--branco);">devolvemos 100% do que você pagou.</strong>
+          Sim, 90 dias. Isso mesmo, nada de 7 dias. Se em 90 dias a Lucri não entregar o trabalho planejado, <strong style="color:var(--branco);">devolvemos 100% do que você pagou.</strong>
         </p>
         <p style="font-size:14px;color:rgba(255,255,255,0.4);">Simples assim. A gente confia no trabalho.</p>
         <button type="button" onclick="abrirQuiz()" class="btn btn-primary" style="margin-top:8px;">
@@ -1436,7 +1478,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="section bg-alt" id="contato">
     <div class="container center">
       <span class="tag">Análise gratuita</span>
-      <h2 class="section-title">Descubra a verdade sobre<br><span class="grad-text">o seu financeiro.</span></h2>
       <p class="section-sub">Preencha abaixo. Nossa equipe entra em contato em até 1 dia útil. Conversa rápida e sem compromisso.</p>
 
       <form class="form-contato-wrap" id="form-wrap">
