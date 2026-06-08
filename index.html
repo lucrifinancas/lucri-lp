@@ -1605,8 +1605,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         try {
           await fetch(APPS_SCRIPT_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(Object.assign({ nome, whatsapp, empresa, faturamento, dor }, getUtmPayload())).toString()
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(Object.assign({ nome, whatsapp, empresa, faturamento, dor }, getUtmPayload()))
           });
         } catch (e) { /* fire-and-forget */ }
       }
@@ -1930,8 +1930,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         try {
           await fetch(APPS_SCRIPT_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(Object.assign({}, respostas, getUtmPayload())).toString()
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(Object.assign({}, respostas, getUtmPayload()))
           });
         } catch(e) {}
       }
