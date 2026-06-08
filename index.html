@@ -1561,7 +1561,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script>
     // Cole aqui a URL do seu Google Apps Script após fazer o deploy
     const APPS_SCRIPT_URL = 'https://hook.us2.make.com/estfj426kejvn03p1sf2ku4q29n5dcrx';
-    const FORMSUBMIT_URL  = 'https://formsubmit.io/ajax/5e7baa78-f684-4b6d-b7d1-1feb33eefe6c';
+    const FORMSUBMIT_URL  = 'https://api.web3forms.com/submit';
+    const WEB3FORMS_KEY   = 'dab9767b-d370-46e0-aa9e-5d7b35869431';
     const FORM_UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
 
     function getUtmPayload() {
@@ -1610,11 +1611,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         } catch (e) { /* fire-and-forget */ }
       }
 
-      fetch(FORMSUBMIT_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(Object.assign({ _subject: 'Novo lead — Lucri Finanças (formulário)', nome, whatsapp, empresa, faturamento, dor }, getUtmPayload()))
-      }).catch(() => {});
+      try {
+        await fetch(FORMSUBMIT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(Object.assign({ access_key: WEB3FORMS_KEY, subject: 'Novo lead — Lucri Finanças (formulário)', from_name: 'Lucri LP', nome, whatsapp, empresa, faturamento, dor }, getUtmPayload()))
+        });
+      } catch(e) {}
 
       window.location.href = 'obrigado.html';
     });
@@ -1933,11 +1936,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         } catch(e) {}
       }
 
-      fetch(FORMSUBMIT_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(Object.assign({ _subject: 'Novo lead — Lucri Finanças (quiz)' }, respostas, getUtmPayload()))
-      }).catch(() => {});
+      try {
+        await fetch(FORMSUBMIT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(Object.assign({ access_key: WEB3FORMS_KEY, subject: 'Novo lead — Lucri Finanças (quiz)', from_name: 'Lucri LP' }, respostas, getUtmPayload()))
+        });
+      } catch(e) {}
 
       window.location.href = 'obrigado.html';
     }
