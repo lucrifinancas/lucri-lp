@@ -1573,6 +1573,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return payload;
     }
 
+    // forminteract: dispara ao completar cada campo do formulário estático
+    document.addEventListener('DOMContentLoaded', function() {
+      ['f-nome', 'f-whatsapp', 'f-empresa'].forEach(function(id) {
+        document.getElementById(id).addEventListener('blur', function() {
+          if (this.value.trim()) {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push(Object.assign({ event: 'forminteract', form_id: 'form-wrap', field_name: id }, getUtmPayload()));
+          }
+        });
+      });
+      ['f-faturamento', 'f-dor'].forEach(function(id) {
+        document.getElementById(id).addEventListener('change', function() {
+          if (this.value) {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push(Object.assign({ event: 'forminteract', form_id: 'form-wrap', field_name: id }, getUtmPayload()));
+          }
+        });
+      });
+    });
+
     document.getElementById('form-wrap').addEventListener('submit', async (event) => {
       event.preventDefault();
 
@@ -1596,7 +1616,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push(Object.assign({
-        event: 'form_submit',
+        event: 'formsubmit',
         form_id: 'form-wrap',
         form_name: 'analise_gratuita'
       }, getUtmPayload()));
