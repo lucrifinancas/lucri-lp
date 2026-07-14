@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WXTMJP2L');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x908yf6nws");
+  </script>
+
+  <!-- Captura e repasse de parâmetros UTM -->
+  <script>
+    (function () {
+      var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+      var params = new URLSearchParams(window.location.search);
+      var utms = {};
+
+      UTM_KEYS.forEach(function (key) {
+        var val = params.get(key) || sessionStorage.getItem(key);
+        if (val) {
+          utms[key] = val;
+          sessionStorage.setItem(key, val);
+        }
+      });
+
+      window._utms = utms;
+
+      if (Object.keys(utms).length) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(Object.assign({ event: 'utm_captured' }, utms));
+      }
+
+      function updateWaLinks() {
+        if (!Object.keys(utms).length) return;
+        document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
+          var url = new URL(a.href);
+          Object.keys(utms).forEach(function (k) { url.searchParams.set(k, utms[k]); });
+          a.href = url.toString();
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateWaLinks);
+      } else {
+        updateWaLinks();
+      }
+    })();
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucri Finanças Corporativas | BPO Financeiro e Controladoria para Empresas</title>
+  <meta name="description" content="A Lucri transforma o financeiro da sua empresa em ferramenta de crescimento. BPO Financeiro, Controladoria e Consultoria para micro e pequenas empresas. Pare de tomar decisão no achismo." />
+  <link rel="preload" as="image" href="./foto-hero-800w.webp" type="image/webp" fetchpriority="high"
+        imagesrcset="./foto-hero-450w.webp 450w, ./foto-hero-800w.webp 800w, ./foto-hero-1440w.webp 1440w"
+        imagesizes="(max-width: 940px) 100vw, 50vw" />
+  <link rel="dns-prefetch" href="https://img.youtube.com" />
+  <link rel="dns-prefetch" href="https://play.gumlet.io" />
+  <link rel="preconnect" href="https://www.google-analytics.com" />
+  <link rel="preconnect" href="https://static.doubleclick.net" />
+  <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+  <link rel="preload" href="./fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./fonts/montserrat-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: swap;
+      src: url('./fonts/montserrat-latin-ext.woff2') format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: swap;
+      src: url('./fonts/montserrat-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --noite:   #010116;
+      --verde:   #00EB85;
+      --azul:    #00D0F5;
+      --branco:  #ffffff;
+      --texto-sub: rgba(255,255,255,0.65);
+      --grad: linear-gradient(90deg, #00D0F5, #00EB85);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--noite);
+      color: var(--branco);
+    }
+
+    /* ── utilitários ── */
+    .grad-text {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section { padding: 64px 24px; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .center { text-align: center; }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--verde);
+      border: 1px solid rgba(0,235,133,0.35);
+      border-radius: 50px;
+      padding: 6px 16px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      overflow-wrap: break-word;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--texto-sub);
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto 40px;
+    }
+
+    /* ── BOTÕES ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--verde);
+      color: var(--noite);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--verde);
+      border: 2px solid var(--verde);
+    }
+
+    .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(1,1,22,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* clip para compensar o padding interno dos arquivos de logo */
+    .logo-clip {
+      height: 38px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .logo-clip img {
+      height: 210px;
+      width: auto;
+      flex-shrink: 0;
+    }
+    .logo-clip-footer {
+      height: 72px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-clip-footer img {
+      height: 240px;
+      width: auto;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding-top: 80px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      padding: 80px 60px 80px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero-titulo {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.15;
+      overflow-wrap: break-word;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      color: var(--texto-sub);
+      line-height: 1.75;
+      max-width: 440px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .hero-img {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .hero-img::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, var(--noite) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    .hero-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, var(--noite) 0%, transparent 30%);
+      z-index: 1;
+    }
+
+    /* ── DOR ── */
+    .dor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .dor-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+
+    .dor-item .icone {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(0,235,133,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .dor-item .icone svg {
+      width: 18px;
+      height: 18px;
+      color: var(--verde);
+    }
+
+    .dor-item p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    /* ── SOLUÇÃO ── */
+    .bg-alt {
+      background: rgba(255,255,255,0.02);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .solucao-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .solucao-card {
+      border-radius: 16px;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+      text-align: left;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .solucao-card:hover {
+      border-color: rgba(0,235,133,0.25);
+      background: rgba(0,235,133,0.03);
+    }
+
+    .solucao-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--grad);
+    }
+
+    .solucao-titulo-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .solucao-titulo-num {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--verde);
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+
+    .solucao-titulo {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .solucao-desc {
+      font-size: 14px;
+      color: var(--texto-sub);
+      line-height: 1.7;
+    }
+
+    /* ── CARD DESTAQUE (garantia) ── */
+    .card-destaque {
+      background: rgba(0,235,133,0.06);
+      border: 1px solid rgba(0,235,133,0.2);
+      border-radius: 16px;
+      padding: 28px 32px;
+      width: 100%;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 48px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+    }
+
+    .footer-logo { height: 36px; }
+
+    .footer-social {
+      display: flex;
+      gap: 14px;
+    }
+
+    .footer-social a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--texto-sub);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .footer-social a:hover { border-color: var(--verde); color: var(--verde); }
+    .footer-social svg { width: 16px; height: 16px; }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ── COMO FUNCIONA (usado só p/ ícones reaproveitados, não exibido aqui) ── */
+
+    /* ── FAQ ── */
+    .faq-item {
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item.open { border-color: rgba(0,235,133,0.3); }
+
+    .faq-pergunta {
+      width: 100%;
+      background: rgba(255,255,255,0.03);
+      border: none;
+      color: var(--branco);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: left;
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      line-height: 1.4;
+    }
+    .faq-pergunta:hover { background: rgba(255,255,255,0.05); }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      color: var(--verde);
+      transition: transform 0.25s;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-resposta {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-resposta-inner {
+      padding: 0 24px 20px;
+      font-size: 14px;
+      color: var(--texto-sub);
+      line-height: 1.75;
+    }
+
+    /* ── VÍDEO ── */
+    .video-section { padding: 80px 24px; }
+
+    .video-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .phone-frame {
+      width: 280px;
+      border-radius: 36px;
+      border: 6px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+      aspect-ratio: 9/16;
+      position: relative;
+      background: #000;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.05),
+        0 32px 80px rgba(0,0,0,0.5),
+        0 0 60px rgba(0,208,245,0.08);
+    }
+
+    .phone-frame iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ── RESPONSIVO ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-img { height: 320px; order: -1; }
+      .hero-img::before { background: linear-gradient(0deg, var(--noite) 0%, transparent 60%); }
+      .hero-content { padding: 40px 24px 60px; }
+      .hero-titulo { font-size: 34px; }
+      nav { padding: 14px 24px; }
+    }
+
+    @media (max-width: 768px) {
+      .solucao-grid { grid-template-columns: 1fr; }
+      .dor-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 14px 16px; }
+      .section { padding: 56px 16px; }
+      .card-destaque { padding: 20px 18px; }
+
+      .section-title { font-size: 26px; }
+      .section-sub { font-size: 15px; margin-bottom: 32px; }
+
+      .hero-titulo { font-size: 28px; }
+      .hero-desc { font-size: 15px; }
+      .hero-content { padding: 32px 16px 48px; }
+      .hero-btns { flex-direction: column; align-items: stretch; gap: 12px; }
+      .hero-btns .btn { justify-content: center; width: 100%; }
+
+      .solucao-card { padding: 24px 18px; }
+
+      .phone-frame { width: min(280px, calc(100vw - 48px)); }
+
+      .video-section { padding: 56px 16px; }
+
+      .faq-pergunta { font-size: 14px; }
+    }
+
+    @media (max-width: 400px) {
+      .section-title { font-size: 23px; }
+      .hero-titulo { font-size: 25px; }
+      .btn { font-size: 13px; padding: 14px 20px; }
+    }
+
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXTMJP2L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo-clip">
+      <picture>
+        <source srcset="./logo-nav-opt.webp" type="image/webp" />
+        <img src="./logo-nav-opt.png" alt="Lucri Finanças Corporativas" width="400" height="400" />
+      </picture>
+    </div>
+    <button type="button" onclick="abrirQuiz()" class="btn btn-primary" style="padding:12px 24px;font-size:13px;">Análise gratuita</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-titulo">
+        Você vende mas o dinheiro some. <span class="grad-text">Será que você está tendo lucro de verdade?</span>
+      </h1>
+      <p class="hero-desc">
+        Faturar sem saber o lucro real é crescer no escuro. A Lucri organiza seu financeiro, traz clareza para os seus números e facilita as suas decisões. Sem contabilês, sem achismo.
+      </p>
+      <div class="hero-btns">
+        <button type="button" onclick="abrirQuiz()" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Quero clareza dos meus números</button>
+        <a href="#solucao" class="btn btn-outline">Ver como funciona</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <picture>
+        <source type="image/webp"
+                srcset="./foto-hero-450w.webp 450w, ./foto-hero-800w.webp 800w, ./foto-hero-1440w.webp 1440w"
+                sizes="(max-width: 940px) 100vw, 50vw" />
+        <img src="./foto-hero-800w.jpg"
+             srcset="./foto-hero-450w.jpg 450w, ./foto-hero-800w.jpg 800w, ./foto-hero-1440w.jpg 1440w"
+             sizes="(max-width: 940px) 100vw, 50vw"
+             alt="Equipe Lucri" width="800" height="600" fetchpriority="high" loading="eager" />
+      </picture>
+    </div>
+  </section>
+
+  <!-- VÍDEO -->
+  <section class="video-section bg-alt">
+    <div class="container center">
+      <span class="tag">Conheça a Lucri</span>
+      <h2 class="section-title" style="margin-bottom:8px;">A solução definitiva para o seu<br><span class="grad-text">financeiro.</span></h2>
+      <div class="video-center">
+        <div class="phone-frame">
+          <iframe loading="lazy" title="VSL Lucri Finanças"
+            src="https://play.gumlet.io/embed/6a22cfe3fc14746995836e64?disable_player_controls=true&autoplay=false"
+            referrerpolicy="origin"
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen; clipboard-write">
+          </iframe>
+        </div>
+        <ul style="max-width:600px;font-size:14px;color:var(--texto-sub);line-height:1.75;text-align:left;list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;">
+          <li>✦ Sócios com +10 de anos trabalhando com gestão financeira</li>
+          <li>✦ Formação em finanças por instituições como UFPR e UTFPR</li>
+          <li>✦ Experiências corporativas em multinacionais e startups</li>
+          <li>✦ Especialistas em liderar finanças de pequenos e médios negócios</li>
+        </ul>
+        <p style="font-size:15px;color:var(--texto-sub);line-height:1.7;max-width:520px;">Competência pra cuidar do seu dinheiro e paz para a sua tomada de decisão.</p>
+        <button type="button" onclick="abrirQuiz()" class="btn btn-primary" style="font-size:15px;padding:18px 40px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Quero parar de perder dinheiro agora</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOR -->
+  <section class="section">
+    <div class="container center">
+      <span class="tag">Identificação</span>
+      <h2 class="section-title">Isso soa familiar?</h2>
+      <div class="dor-grid" style="margin-bottom:40px;">
+        <div class="dor-item">
+          <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="15" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+          <p>"Faturei bem esse mês, mas no fim sobrou pouco ou nada"</p>
+        </div>
+        <div class="dor-item">
+          <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+          <p>"Pago contas pessoais na conta da empresa e não sei como mudar"</p>
+        </div>
+        <div class="dor-item">
+          <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <p>"Não sei se posso contratar, investir ou devo cortar agora"</p>
+        </div>
+        <div class="dor-item">
+          <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <p>"O dinheiro entra, mas some. E eu não sei pra onde vai"</p>
+        </div>
+      </div>
+      <p class="section-sub" style="margin-bottom:32px;">Se você respondeu sim para alguma dessas frases, o problema não é o mercado ou azar. É o financeiro.</p>
+      <button type="button" onclick="abrirQuiz()" class="btn btn-primary" style="margin-top:8px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Sim, quero resolver isso
+      </button>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section class="section bg-alt" id="solucao">
+    <div class="container center">
+      <span class="tag">Como a Lucri atua</span>
+      <h2 class="section-title">Não somos só pagadores de boletos.<br>Somos seu <span class="grad-text">aliado estratégico.</span></h2>
+      <p class="section-sub">Atuamos em três frentes para transformar seu financeiro de problema em ferramenta de crescimento. Não tem planos e pacotes, ou é tudo, que vai resolver seu problema, ou é nada e continuará igual.</p>
+      <div class="solucao-grid">
+        <div class="solucao-card">
+          <div class="solucao-titulo-wrap">
+            <span class="solucao-titulo-num">01.</span>
+            <h3 class="solucao-titulo">BPO Financeiro</h3>
+          </div>
+          <p class="solucao-desc">Implantamos nosso sistema no seu negócio e assumimos a operação do dia a dia. Contas à pagar/receber, cada movimentação categorizada e conciliada, organização completa sem você precisar tocar em planilha, extrato ou PDF.</p>
+        </div>
+        <div class="solucao-card">
+          <div class="solucao-titulo-wrap">
+            <span class="solucao-titulo-num">02.</span>
+            <h3 class="solucao-titulo">Controladoria e Indicadores</h3>
+          </div>
+          <p class="solucao-desc">Com os dados da operação apurados, traduzimos tudo em clareza real. DRE, margem, EBITDA, fluxo de caixa e precificação, em relatórios visuais que o dono entende e usa pra decidir.</p>
+        </div>
+        <div class="solucao-card">
+          <div class="solucao-titulo-wrap">
+            <span class="solucao-titulo-num">03.</span>
+            <h3 class="solucao-titulo">Consultoria Estratégica</h3>
+          </div>
+          <p class="solucao-desc">Somos o braço direito nas decisões e o antídoto da solidão do empreendedor. Consultoria estratégica e de relacionamento bem próximo ao dono, sempre com base nos seus números, não no achismo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUANTO CUSTA -->
+  <section class="section">
+    <div class="container center">
+      <span class="tag">Quanto custa</span>
+      <h2 class="section-title">Não somos uma despesa,<br>somos um <span class="grad-text">investimento.</span></h2>
+      <div style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:24px;align-items:center;">
+        <p style="font-size:16px;color:var(--texto-sub);line-height:1.75;">O honorário é variável conforme o resultado mensal, queremos um relacionamento de longo prazo, se o negócio cresce, crescemos juntos, se o negócio cai, recebemos menos.</p>
+        <div class="card-destaque">
+          <p style="font-size:17px;font-weight:700;color:var(--branco);line-height:1.6;">A Lucri só quer ganhar dinheiro se você ganhar dinheiro.<br><span style="color:var(--texto-sub);font-weight:400;font-size:15px;">Não tem pegadinha, é um genuíno ganha-ganha.</span></p>
+        </div>
+        <button type="button" onclick="abrirQuiz()" class="btn btn-primary" style="font-size:15px;padding:18px 40px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Quero descobrir quanto tenho que investir
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section bg-alt" id="faq">
+    <div class="container center">
+      <span class="tag">Dúvidas frequentes</span>
+      <h2 class="section-title">Perguntas que a gente<br><span class="grad-text">ouve toda semana</span></h2>
+      <p class="section-sub">Respostas diretas, sem enrolação.</p>
+      <div style="max-width:720px;margin:0 auto;text-align:left;display:flex;flex-direction:column;gap:12px;" id="faq-lista"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="logo-clip-footer">
+        <picture>
+          <source srcset="./logo-footer-opt.webp" type="image/webp" />
+          <img src="./logo-footer-opt.png" alt="Lucri Finanças Corporativas" width="400" height="400" loading="lazy" />
+        </picture>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/lucrifinancas/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@lucrifinancas" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+        </a>
+      </div>
+      <p class="footer-copy">©2026 Lucri Finanças Corporativas · Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- FORMULÁRIO SCRIPT -->
+  <script>
+    // Cole aqui a URL do seu Google Apps Script após fazer o deploy
+    const APPS_SCRIPT_URL = 'https://hook.us2.make.com/estfj426kejvn03p1sf2ku4q29n5dcrx';
+    const FORMSUBMIT_URL  = 'https://api.web3forms.com/submit';
+    const WEB3FORMS_KEY   = 'dab9767b-d370-46e0-aa9e-5d7b35869431';
+    const FORM_UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+
+    function getUtmPayload() {
+      const payload = {};
+      FORM_UTM_KEYS.forEach((key) => {
+        payload[key] = (window._utms && window._utms[key]) || sessionStorage.getItem(key) || '';
+      });
+      return payload;
+    }
+
+  </script>
+
+  <!-- FAQ SCRIPT -->
+  <script>
+    const faqs = [
+      {
+        p: "Quanto custa? Como funciona o pagamento?",
+        r: "O honorário mensal é variável, sem valor fixo que pese todo mês. Temos clientes que contrataram a Lucri com faturamento desde 20 mil até 1 milhão por mês. Funciona bem para todos, e os clientes sentem que é uma relação justa."
+      },
+      {
+        p: "Tem garantia?",
+        r: "Sim, garantia de 90 dias. Isso mesmo, nada de 7 dias. Se em 90 dias a Lucri não entregar o trabalho planejado, devolvemos 100% do que você pagou. Simples assim, a gente confia no trabalho."
+      },
+      {
+        p: "Tem fidelidade?",
+        r: "NÃO. Não somos academia pra te amarrar em um contrato de 12 meses. Pelo contrário, queremos que só fique conosco quem realmente quer, por isso você cancela quando quiser, honrando somente o mês de trabalho."
+      },
+      {
+        p: "Como funciona o acompanhamento no dia a dia?",
+        r: "Grupo de WhatsApp diretamente com os donos da Lucri, sem passar por atendente. Respondemos rapidamente e sempre temos agenda disponível para ligação ou atendimento presencial na nossa sede."
+      },
+      {
+        p: "Funciona pra qualquer tipo de negócio?",
+        r: "Sim. Atendemos restaurantes, hamburguerias, cafeterias, e-commerces, barbearias, clínicas, dentistas, psicólogos, agências de marketing, startups, distribuidoras e mais. A base do serviço é a mesma, o que muda é como adaptamos para o fluxo de cada negócio."
+      }
+    ];
+
+    const lista = document.getElementById('faq-lista');
+    faqs.forEach((faq, i) => {
+      const item = document.createElement('div');
+      item.className = 'faq-item';
+      item.innerHTML = `
+        <button class="faq-pergunta" aria-expanded="false">
+          ${faq.p}
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-inner">${faq.r}</div>
+        </div>`;
+      const btn = item.querySelector('.faq-pergunta');
+      const resp = item.querySelector('.faq-resposta');
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.faq-resposta').style.maxHeight = null;
+          el.querySelector('.faq-pergunta').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          resp.style.maxHeight = resp.scrollHeight + 'px';
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+      lista.appendChild(item);
+    });
+  </script>
+
+  <!-- BOTÃO FLUTUANTE + QUIZ -->
+  <style>
+    .quiz-fab {
+      position: fixed; bottom: 28px; right: 28px; z-index: 900;
+      display: flex; align-items: center; gap: 10px;
+      background: linear-gradient(90deg,#00D0F5,#00EB85);
+      color: #010116; font-family: 'Montserrat',sans-serif;
+      font-size: 13px; font-weight: 800;
+      padding: 14px 22px; border-radius: 50px; border: none;
+      cursor: pointer; box-shadow: 0 8px 32px rgba(0,235,133,0.3);
+      transition: transform .2s, box-shadow .2s, opacity .3s;
+      opacity: 0; pointer-events: none; transform: translateY(16px);
+    }
+    .quiz-fab.visivel { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .quiz-fab:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 12px 40px rgba(0,235,133,0.4); }
+
+    #quiz-overlay {
+      position: fixed; inset: 0; background: rgba(1,1,22,0.92);
+      backdrop-filter: blur(10px); z-index: 950;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px; opacity: 0; pointer-events: none; transition: opacity .25s;
+    }
+    #quiz-overlay.aberto { opacity: 1; pointer-events: auto; }
+
+    .quiz-modal {
+      background: #0a0a28; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px; padding: 40px 36px; width: 100%; max-width: 520px;
+      display: flex; flex-direction: column; gap: 28px; position: relative;
+      transform: scale(.96) translateY(12px); transition: transform .3s;
+    }
+    #quiz-overlay.aberto .quiz-modal { transform: scale(1) translateY(0); }
+
+    .quiz-prog-wrap { display: flex; flex-direction: column; gap: 8px; }
+    .quiz-prog-labels { display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.4); font-weight: 600; }
+    .quiz-prog-bar { height: 3px; background: rgba(255,255,255,0.08); border-radius: 50px; overflow: hidden; }
+    .quiz-prog-fill { height: 100%; background: linear-gradient(90deg,#00D0F5,#00EB85); border-radius: 50px; transition: width .4s ease; }
+
+    .quiz-step { display: none; flex-direction: column; gap: 20px; animation: fadeUp .3s ease; }
+    .quiz-step.ativo { display: flex; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+
+    .quiz-titulo { font-size: 20px; font-weight: 800; line-height: 1.35; }
+    .quiz-sub { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: -12px; }
+
+    .quiz-opcoes { display: flex; flex-direction: column; gap: 10px; }
+    .opcao-btn {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 14px 18px; font-family: 'Montserrat',sans-serif;
+      font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85);
+      cursor: pointer; text-align: left; transition: all .15s;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .opcao-btn:hover { border-color: rgba(0,235,133,0.4); background: rgba(0,235,133,0.05); color: #fff; }
+    .opcao-btn.selecionado { border-color: var(--verde); background: rgba(0,235,133,0.1); color: var(--verde); }
+    .opcao-letra {
+      width: 26px; height: 26px; border-radius: 6px; flex-shrink: 0;
+      background: rgba(255,255,255,0.07); display: flex; align-items: center;
+      justify-content: center; font-size: 11px; font-weight: 800;
+    }
+    .opcao-btn.selecionado .opcao-letra { background: var(--verde); color: #010116; }
+
+    .quiz-input {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 16px 18px; font-family: 'Montserrat',sans-serif;
+      font-size: 15px; color: #fff; outline: none; transition: border-color .2s; width: 100%;
+    }
+    .quiz-input:focus { border-color: rgba(0,235,133,0.45); background: rgba(255,255,255,0.07); }
+    .quiz-input::placeholder { color: rgba(255,255,255,0.25); }
+
+    .quiz-nav { display: flex; align-items: center; gap: 12px; }
+    .btn-voltar {
+      background: none; border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.4);
+      border-radius: 10px; padding: 11px 18px; font-family: 'Montserrat',sans-serif;
+      font-size: 12px; font-weight: 700; cursor: pointer; transition: all .15s;
+    }
+    .btn-voltar:hover { border-color: rgba(255,255,255,0.25); color: #fff; }
+    .btn-avancar {
+      flex: 1; background: linear-gradient(90deg,#00D0F5,#00EB85); border: none;
+      border-radius: 10px; padding: 14px; font-family: 'Montserrat',sans-serif;
+      font-size: 13px; font-weight: 800; color: #010116; cursor: pointer; transition: opacity .2s;
+    }
+    .btn-avancar:hover { opacity: .88; }
+    .btn-avancar:disabled { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.25); cursor: not-allowed; }
+
+    .quiz-sucesso { display: none; flex-direction: column; align-items: center; text-align: center; gap: 16px; padding: 8px 0; }
+    .quiz-sucesso.ativo { display: flex; animation: fadeUp .4s ease; }
+
+    .quiz-fechar {
+      position: absolute; top: 18px; right: 18px; width: 32px; height: 32px;
+      background: rgba(255,255,255,0.06); border: none; border-radius: 50%;
+      color: rgba(255,255,255,0.4); font-size: 16px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: all .15s;
+    }
+    .quiz-fechar:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+    @media (max-width: 600px) {
+      .quiz-modal { padding: 28px 20px; }
+      .quiz-titulo { font-size: 17px; }
+      .quiz-fab { bottom: 20px; right: 20px; }
+    }
+  </style>
+
+  <button class="quiz-fab" id="quiz-fab" onclick="abrirQuiz()">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.849L.057 23.175a.75.75 0 0 0 .906.918l5.42-1.424A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.726 9.726 0 0 1-4.953-1.355l-.355-.211-3.677.966.982-3.584-.231-.369A9.718 9.718 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+    Falar com a Lucri
+  </button>
+
+  <div id="quiz-overlay" onclick="fecharQuizFora(event)">
+    <div class="quiz-modal">
+      <button class="quiz-fechar" onclick="fecharQuiz()">✕</button>
+
+      <div class="quiz-prog-wrap" id="quiz-prog-wrap">
+        <div class="quiz-prog-labels">
+          <span id="prog-label">Pergunta 1 de 5</span>
+          <span id="prog-pct">20%</span>
+        </div>
+        <div class="quiz-prog-bar"><div class="quiz-prog-fill" id="prog-fill" style="width:20%"></div></div>
+      </div>
+
+      <div class="quiz-step ativo" id="qs-1">
+        <div class="quiz-titulo">Qual é o seu nome?</div>
+        <input class="quiz-input" type="text" id="q-nome" placeholder="Seu nome completo" autocomplete="name" oninput="validarTexto('q-nome','btn-av-1')" />
+        <div class="quiz-nav"><div></div><button class="btn-avancar" id="btn-av-1" disabled onclick="avancar(2)">Próximo →</button></div>
+      </div>
+
+      <div class="quiz-step" id="qs-2">
+        <div class="quiz-titulo">Qual é o seu WhatsApp?</div>
+        <div class="quiz-sub">Nossa equipe entra em contato em até 1 dia útil.</div>
+        <input class="quiz-input" type="tel" id="q-wpp" placeholder="(41) 9 9999-9999" autocomplete="tel" oninput="validarTexto('q-wpp','btn-av-2')" />
+        <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(1)">← Voltar</button><button class="btn-avancar" id="btn-av-2" disabled onclick="avancar(3)">Próximo →</button></div>
+      </div>
+
+      <div class="quiz-step" id="qs-3">
+        <div class="quiz-titulo">Qual é o nome da sua empresa?</div>
+        <input class="quiz-input" type="text" id="q-empresa" placeholder="Ex: Padaria do João" oninput="validarTexto('q-empresa','btn-av-3')" />
+        <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(2)">← Voltar</button><button class="btn-avancar" id="btn-av-3" disabled onclick="avancar(4)">Próximo →</button></div>
+      </div>
+
+      <div class="quiz-step" id="qs-4">
+        <div class="quiz-titulo">Qual é o faturamento mensal da sua empresa?</div>
+        <div class="quiz-sub">Aproximado, sem compromisso.</div>
+        <div class="quiz-opcoes">
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'faturamento')"><span class="opcao-letra">A</span>Até R$30 mil</button>
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'faturamento')"><span class="opcao-letra">B</span>R$30 mil a R$100 mil</button>
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'faturamento')"><span class="opcao-letra">C</span>R$100 mil a R$300 mil</button>
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'faturamento')"><span class="opcao-letra">D</span>Acima de R$300 mil</button>
+        </div>
+        <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(3)">← Voltar</button><button class="btn-avancar" id="btn-av-4" disabled onclick="avancar(5)">Próximo →</button></div>
+      </div>
+
+      <div class="quiz-step" id="qs-5">
+        <div class="quiz-titulo">Qual é o maior desafio financeiro da sua empresa hoje?</div>
+        <div class="quiz-opcoes">
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">A</span>Não sei se estou tendo lucro de verdade</button>
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">B</span>O dinheiro entra, mas some sem eu saber pra onde</button>
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">C</span>Preciso organizar o financeiro do zero</button>
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">D</span>Quero tomar decisões com dados, não no achismo</button>
+        </div>
+        <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(4)">← Voltar</button><button class="btn-avancar" id="btn-av-5" disabled onclick="enviarQuiz()">Enviar →</button></div>
+      </div>
+
+      <div class="quiz-sucesso" id="quiz-sucesso">
+        <div style="width:60px;height:60px;border-radius:50%;background:rgba(0,235,133,0.1);border:1px solid rgba(0,235,133,0.3);display:flex;align-items:center;justify-content:center;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00EB85" stroke-width="2.5" width="26"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div style="font-size:20px;font-weight:800;">Perfeito! Recebemos tudo.</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;max-width:360px;">Nossa equipe vai entrar em contato no seu WhatsApp em até 1 dia útil. Se preferir, pode chamar agora:</div>
+        <a href="https://wa.me/5541992423755" target="_blank" rel="noopener" class="btn-avancar" style="text-decoration:none;display:flex;align-items:center;justify-content:center;gap:10px;max-width:300px;">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="15"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.849L.057 23.175a.75.75 0 0 0 .906.918l5.42-1.424A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.726 9.726 0 0 1-4.953-1.355l-.355-.211-3.677.966.982-3.584-.231-.369A9.718 9.718 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          Chamar no WhatsApp agora
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const fab = document.getElementById('quiz-fab');
+      if (window.scrollY > 400) fab.classList.add('visivel');
+      else fab.classList.remove('visivel');
+    }, { passive: true });
+
+    const respostas = {};
+    let passoAtual = 1;
+
+    function abrirQuiz() {
+      document.getElementById('quiz-overlay').classList.add('aberto');
+      document.body.style.overflow = 'hidden';
+    }
+    function fecharQuiz() {
+      document.getElementById('quiz-overlay').classList.remove('aberto');
+      document.body.style.overflow = '';
+    }
+    function fecharQuizFora(e) {
+      if (e.target === document.getElementById('quiz-overlay')) fecharQuiz();
+    }
+
+    function atualizarProgresso(passo) {
+      const pct = Math.round((passo / 5) * 100);
+      document.getElementById('prog-fill').style.width = pct + '%';
+      document.getElementById('prog-pct').textContent = pct + '%';
+      document.getElementById('prog-label').textContent = `Pergunta ${passo} de 5`;
+    }
+
+    function avancar(proximo) {
+      document.getElementById('qs-' + passoAtual).classList.remove('ativo');
+      passoAtual = proximo;
+      document.getElementById('qs-' + passoAtual).classList.add('ativo');
+      atualizarProgresso(passoAtual);
+    }
+
+    function voltar(anterior) {
+      document.getElementById('qs-' + passoAtual).classList.remove('ativo');
+      passoAtual = anterior;
+      document.getElementById('qs-' + passoAtual).classList.add('ativo');
+      atualizarProgresso(passoAtual);
+    }
+
+    function selecionarOpcao(btn, campo) {
+      btn.closest('.quiz-opcoes').querySelectorAll('.opcao-btn').forEach(b => b.classList.remove('selecionado'));
+      btn.classList.add('selecionado');
+      respostas[campo] = btn.textContent.replace(/^[A-D]/,'').trim();
+      const btnAv = document.getElementById('btn-av-' + passoAtual);
+      if (btnAv) btnAv.disabled = false;
+    }
+
+    function validarTexto(inputId, btnId) {
+      document.getElementById(btnId).disabled = document.getElementById(inputId).value.trim().length < 2;
+    }
+
+    async function enviarQuiz() {
+      respostas.nome     = document.getElementById('q-nome').value.trim();
+      respostas.whatsapp = document.getElementById('q-wpp').value.trim();
+      respostas.empresa  = document.getElementById('q-empresa').value.trim();
+
+      const btn = document.getElementById('btn-av-5');
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
+
+      if (APPS_SCRIPT_URL !== 'COLE_AQUI_A_URL_DO_APPS_SCRIPT') {
+        try {
+          await fetch(APPS_SCRIPT_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(Object.assign({}, respostas, getUtmPayload()))
+          });
+        } catch(e) {}
+      }
+
+      try {
+        await fetch(FORMSUBMIT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(Object.assign({ access_key: WEB3FORMS_KEY, subject: 'Novo lead — Lucri Finanças (quiz)', from_name: 'Lucri LP' }, respostas, getUtmPayload()))
+        });
+      } catch(e) {}
+
+      window.location.href = 'obrigado.html';
+    }
+
+  </script>
+
+</body>
+</html>
