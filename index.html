@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿por <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
@@ -1653,7 +1653,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="quiz-step" id="qs-2">
         <div class="quiz-titulo">Qual é o seu WhatsApp?</div>
         <div class="quiz-sub">Nossa equipe entra em contato em até 1 dia útil.</div>
-        <input class="quiz-input" type="tel" id="q-wpp" placeholder="(41) 9 9999-9999" autocomplete="tel" oninput="validarTexto('q-wpp','btn-av-2')" />
+        <input class="quiz-input" type="tel" id="q-wpp" placeholder="(41) 9 9999-9999" autocomplete="tel" inputmode="numeric" maxlength="16" oninput="validarWhatsapp()" />
         <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(1)">← Voltar</button><button class="btn-avancar" id="btn-av-2" disabled onclick="avancar(3)">Próximo →</button></div>
       </div>
 
@@ -1753,6 +1753,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     function validarTexto(inputId, btnId) {
       document.getElementById(btnId).disabled = document.getElementById(inputId).value.trim().length < 2;
+    }
+
+    function validarWhatsapp() {
+      const input = document.getElementById('q-wpp');
+      const digitos = input.value.replace(/\D/g, '').slice(0, 11);
+
+      let formatado = digitos;
+      if (digitos.length > 2) formatado = `(${digitos.slice(0,2)}) ${digitos.slice(2)}`;
+      if (digitos.length > 3) formatado = `(${digitos.slice(0,2)}) ${digitos.slice(2,3)} ${digitos.slice(3)}`;
+      if (digitos.length > 7) formatado = `(${digitos.slice(0,2)}) ${digitos.slice(2,3)} ${digitos.slice(3,7)}-${digitos.slice(7)}`;
+      input.value = formatado;
+
+      const ddd = parseInt(digitos.slice(0, 2), 10);
+      const dddValido = ddd >= 11 && ddd <= 99;
+      const numeroValido = digitos.length === 11 && digitos[2] === '9' && dddValido;
+
+      document.getElementById('btn-av-2').disabled = !numeroValido;
     }
 
     async function enviarQuiz() {
