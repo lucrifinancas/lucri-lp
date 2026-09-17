@@ -1446,7 +1446,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- FORMULÁRIO SCRIPT -->
   <script>
     // Cole aqui a URL do seu Google Apps Script após fazer o deploy
-    const APPS_SCRIPT_URL = 'https://hook.us2.make.com/estfj426kejvn03p1sf2ku4q29n5dcrx';
     const FORMSUBMIT_URL  = 'https://api.web3forms.com/submit';
     const LUCRI_LEADS_URL = 'https://lucri-leads.lucrifinancas-54e.workers.dev/';
     const WEB3FORMS_KEY   = 'dab9767b-d370-46e0-aa9e-5d7b35869431';
@@ -1782,16 +1781,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       btn.textContent = 'Enviando...';
       btn.disabled = true;
 
-      if (APPS_SCRIPT_URL !== 'COLE_AQUI_A_URL_DO_APPS_SCRIPT') {
-        try {
-          await fetch(APPS_SCRIPT_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(Object.assign({}, respostas, getUtmPayload()))
-          });
-        } catch(e) {}
-      }
-
       try {
         await fetch(FORMSUBMIT_URL, {
           method: 'POST',
@@ -1800,10 +1789,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
       } catch(e) {}
 
-      // Worker novo (lucri-leads) — roda em paralelo ao Make acima enquanto
-      // testamos; depois de validado, a chamada ao Make sai.
+      // `await`ado (e não só disparado) pra não ser cancelado pelo
+      // redirecionamento logo abaixo — a requisição precisa terminar antes
+      // da página navegar.
       try {
-        fetch(LUCRI_LEADS_URL, {
+        await fetch(LUCRI_LEADS_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(Object.assign({}, respostas, { origem: 'LP', utm: getUtmPayload() }))
