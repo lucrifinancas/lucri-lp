@@ -1448,6 +1448,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     // Cole aqui a URL do seu Google Apps Script após fazer o deploy
     const APPS_SCRIPT_URL = 'https://hook.us2.make.com/estfj426kejvn03p1sf2ku4q29n5dcrx';
     const FORMSUBMIT_URL  = 'https://api.web3forms.com/submit';
+    const LUCRI_LEADS_URL = 'https://lucri-leads.lucrifinancas-54e.workers.dev/';
     const WEB3FORMS_KEY   = 'dab9767b-d370-46e0-aa9e-5d7b35869431';
     const FORM_UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
 
@@ -1796,6 +1797,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(Object.assign({ access_key: WEB3FORMS_KEY, subject: 'Novo lead — Lucri Finanças (quiz)', from_name: 'Lucri LP' }, respostas, getUtmPayload()))
+        });
+      } catch(e) {}
+
+      // Worker novo (lucri-leads) — roda em paralelo ao Make acima enquanto
+      // testamos; depois de validado, a chamada ao Make sai.
+      try {
+        fetch(LUCRI_LEADS_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.assign({}, respostas, { origem: 'LP', utm: getUtmPayload() }))
         });
       } catch(e) {}
 
