@@ -1710,9 +1710,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const respostas = {};
     let passoAtual = 1;
 
+    const STEP_NAMES = {1:'nome', 2:'whatsapp', 3:'empresa', 4:'faturamento', 5:'desafio'};
+    function trackStep(numero) {
+      if (typeof gtag === 'function') {
+        gtag('event', 'quiz_step_view', { step_number: numero, step_name: STEP_NAMES[numero] });
+      }
+    }
+
     function abrirQuiz() {
       document.getElementById('quiz-overlay').classList.add('aberto');
       document.body.style.overflow = 'hidden';
+      trackStep(1);
     }
     function fecharQuiz() {
       document.getElementById('quiz-overlay').classList.remove('aberto');
@@ -1734,6 +1742,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       passoAtual = proximo;
       document.getElementById('qs-' + passoAtual).classList.add('ativo');
       atualizarProgresso(passoAtual);
+      trackStep(passoAtual);
     }
 
     function voltar(anterior) {
@@ -1800,6 +1809,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
       } catch(e) {}
 
+      if (typeof gtag === 'function') gtag('event', 'quiz_submit');
       window.location.href = 'obrigado.html';
     }
 
