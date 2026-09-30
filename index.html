@@ -1712,9 +1712,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     const STEP_NAMES = {1:'nome', 2:'whatsapp', 3:'empresa', 4:'faturamento', 5:'desafio'};
     function trackStep(numero) {
-      if (typeof gtag === 'function') {
-        gtag('event', 'quiz_step_view', { step_number: numero, step_name: STEP_NAMES[numero] });
-      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'quiz_step_view', step_number: numero, step_name: STEP_NAMES[numero] });
     }
 
     function abrirQuiz() {
@@ -1809,7 +1808,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
       } catch(e) {}
 
-      if (typeof gtag === 'function') gtag('event', 'quiz_submit');
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'quiz_submit' });
       window.location.href = 'obrigado.html';
     }
 
