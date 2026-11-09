@@ -1664,6 +1664,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div class="quiz-step" id="qs-4">
+        <div class="quiz-titulo">Qual é o maior desafio financeiro da sua empresa hoje?</div>
+        <div class="quiz-opcoes">
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">A</span>Não sei se estou tendo lucro de verdade</button>
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">B</span>O dinheiro entra, mas some sem eu saber pra onde</button>
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">C</span>Preciso organizar o financeiro do zero</button>
+          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">D</span>Quero tomar decisões com dados, não no achismo</button>
+        </div>
+        <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(3)">← Voltar</button><button class="btn-avancar" id="btn-av-4" disabled onclick="avancar(5)">Próximo →</button></div>
+      </div>
+
+      <div class="quiz-step" id="qs-5">
         <div class="quiz-titulo">Qual é o faturamento mensal da sua empresa?</div>
         <div class="quiz-sub">Aproximado, sem compromisso.</div>
         <div class="quiz-opcoes">
@@ -1671,17 +1682,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <button class="opcao-btn" onclick="selecionarOpcao(this,'faturamento')"><span class="opcao-letra">B</span>R$30 mil a R$100 mil</button>
           <button class="opcao-btn" onclick="selecionarOpcao(this,'faturamento')"><span class="opcao-letra">C</span>R$100 mil a R$300 mil</button>
           <button class="opcao-btn" onclick="selecionarOpcao(this,'faturamento')"><span class="opcao-letra">D</span>Acima de R$300 mil</button>
-        </div>
-        <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(3)">← Voltar</button><button class="btn-avancar" id="btn-av-4" disabled onclick="avancar(5)">Próximo →</button></div>
-      </div>
-
-      <div class="quiz-step" id="qs-5">
-        <div class="quiz-titulo">Qual é o maior desafio financeiro da sua empresa hoje?</div>
-        <div class="quiz-opcoes">
-          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">A</span>Não sei se estou tendo lucro de verdade</button>
-          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">B</span>O dinheiro entra, mas some sem eu saber pra onde</button>
-          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">C</span>Preciso organizar o financeiro do zero</button>
-          <button class="opcao-btn" onclick="selecionarOpcao(this,'dor')"><span class="opcao-letra">D</span>Quero tomar decisões com dados, não no achismo</button>
         </div>
         <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(4)">← Voltar</button><button class="btn-avancar" id="btn-av-5" disabled onclick="enviarQuiz()">Enviar →</button></div>
       </div>
@@ -1692,7 +1692,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <button type="button" class="opcao-btn" data-value="sim" aria-pressed="false" onclick="selecionarOpcao(this,'investimento')"><span class="opcao-letra">A</span>Sim, estou interessado e quero saber mais</button>
           <button type="button" class="opcao-btn" data-value="nao" aria-pressed="false" onclick="selecionarOpcao(this,'investimento')"><span class="opcao-letra">B</span>Não, no momento não tenho condições e não quero</button>
         </div>
-        <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(4)">← Voltar</button><button class="btn-avancar" id="btn-av-6" disabled onclick="enviarQuiz()">Enviar →</button></div>
+        <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(5)">← Voltar</button><button class="btn-avancar" id="btn-av-6" disabled onclick="enviarQuiz()">Enviar →</button></div>
       </div>
 
       <div class="quiz-sucesso" id="quiz-sucesso">
@@ -1719,10 +1719,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const respostas = {};
     let passoAtual = 1;
 
-    const STEP_NAMES = {1:'nome', 2:'whatsapp', 3:'empresa', 4:'faturamento', 5:'desafio', 6:'investimento'};
+    const STEP_NAMES = {1:'nome', 2:'whatsapp', 3:'empresa', 4:'desafio', 5:'faturamento', 6:'investimento'};
     function trackStep(numero) {
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: 'quiz_step_view', step_number: numero === 6 ? 5 : numero, step_name: STEP_NAMES[numero] });
+      window.dataLayer.push({ event: 'quiz_step_view', step_number: numero, step_name: STEP_NAMES[numero] });
     }
 
     function abrirQuiz() {
@@ -1739,8 +1739,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     function atualizarProgresso(passo) {
-      const total = 5;
-      const numero = passo === 6 ? 5 : passo;
+      const total = respostas.faturamento === 'Até R$30 mil' ? 6 : 5;
+      const numero = passo;
       const pct = Math.round((numero / total) * 100);
       document.getElementById('prog-fill').style.width = pct + '%';
       document.getElementById('prog-pct').textContent = pct + '%';
@@ -1748,7 +1748,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     function avancar(proximo) {
-      if (passoAtual === 4 && proximo === 5 && respostas.faturamento === 'Até R$30 mil') proximo = 6;
       document.getElementById('qs-' + passoAtual).classList.remove('ativo');
       passoAtual = proximo;
       document.getElementById('qs-' + passoAtual).classList.add('ativo');
@@ -1780,9 +1779,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           b.setAttribute('aria-pressed', 'false');
         });
         document.getElementById('btn-av-6').disabled = true;
-        delete respostas.dor;
-        document.querySelectorAll('#qs-5 .opcao-btn').forEach(b => b.classList.remove('selecionado'));
-        document.getElementById('btn-av-5').disabled = true;
+        document.getElementById('btn-av-5').textContent = respostas.faturamento === 'Até R$30 mil' ? 'Próximo →' : 'Enviar →';
         atualizarProgresso(passoAtual);
       }
       const btnAv = document.getElementById('btn-av-' + passoAtual);
@@ -1812,6 +1809,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     async function enviarQuiz() {
       if (respostas.faturamento === 'Até R$30 mil') {
+        if (passoAtual === 5) {
+          avancar(6);
+          return;
+        }
         if (passoAtual !== 6) {
           return;
         }
