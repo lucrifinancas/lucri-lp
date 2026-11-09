@@ -1686,6 +1686,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(4)">← Voltar</button><button class="btn-avancar" id="btn-av-5" disabled onclick="enviarQuiz()">Enviar →</button></div>
       </div>
 
+      <div class="quiz-step" id="qs-6">
+        <div class="quiz-titulo" id="q-investimento-titulo">Você estará disposto a investir pelo menos R$ 1500,00 por mês para resolver a gestão financeira da sua empresa?</div>
+        <div class="quiz-opcoes" role="group" aria-labelledby="q-investimento-titulo">
+          <button type="button" class="opcao-btn" data-value="sim" aria-pressed="false" onclick="selecionarOpcao(this,'investimento')"><span class="opcao-letra">A</span>Sim, estou interessado e quero saber mais</button>
+          <button type="button" class="opcao-btn" data-value="nao" aria-pressed="false" onclick="selecionarOpcao(this,'investimento')"><span class="opcao-letra">B</span>Não, no momento não tenho condições e não quero</button>
+        </div>
+        <div class="quiz-nav"><button class="btn-voltar" onclick="voltar(4)">← Voltar</button><button class="btn-avancar" id="btn-av-6" disabled onclick="enviarQuiz()">Enviar →</button></div>
+      </div>
+
       <div class="quiz-sucesso" id="quiz-sucesso">
         <div style="width:60px;height:60px;border-radius:50%;background:rgba(0,235,133,0.1);border:1px solid rgba(0,235,133,0.3);display:flex;align-items:center;justify-content:center;">
           <svg viewBox="0 0 24 24" fill="none" stroke="#00EB85" stroke-width="2.5" width="26"><polyline points="20 6 9 17 4 12"/></svg>
@@ -1710,16 +1719,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const respostas = {};
     let passoAtual = 1;
 
-    const STEP_NAMES = {1:'nome', 2:'whatsapp', 3:'empresa', 4:'faturamento', 5:'desafio'};
+    const STEP_NAMES = {1:'nome', 2:'whatsapp', 3:'empresa', 4:'faturamento', 5:'desafio', 6:'investimento'};
     function trackStep(numero) {
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: 'quiz_step_view', step_number: numero, step_name: STEP_NAMES[numero] });
+      window.dataLayer.push({ event: 'quiz_step_view', step_number: numero === 6 ? 5 : numero, step_name: STEP_NAMES[numero] });
     }
 
     function abrirQuiz() {
       document.getElementById('quiz-overlay').classList.add('aberto');
       document.body.style.overflow = 'hidden';
-      trackStep(1);
+      trackStep(passoAtual);
     }
     function fecharQuiz() {
       document.getElementById('quiz-overlay').classList.remove('aberto');
@@ -1730,13 +1739,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     function atualizarProgresso(passo) {
-      const pct = Math.round((passo / 5) * 100);
+      const total = 5;
+      const numero = passo === 6 ? 5 : passo;
+      const pct = Math.round((numero / total) * 100);
       document.getElementById('prog-fill').style.width = pct + '%';
       document.getElementById('prog-pct').textContent = pct + '%';
-      document.getElementById('prog-label').textContent = `Pergunta ${passo} de 5`;
+      document.getElementById('prog-label').textContent = `Pergunta ${numero} de ${total}`;
     }
 
     function avancar(proximo) {
+      if (passoAtual === 4 && proximo === 5 && respostas.faturamento === 'Até R$30 mil') proximo = 6;
       document.getElementById('qs-' + passoAtual).classList.remove('ativo');
       passoAtual = proximo;
       document.getElementById('qs-' + passoAtual).classList.add('ativo');
@@ -1752,9 +1764,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     function selecionarOpcao(btn, campo) {
-      btn.closest('.quiz-opcoes').querySelectorAll('.opcao-btn').forEach(b => b.classList.remove('selecionado'));
+      btn.closest('.quiz-opcoes').querySelectorAll('.opcao-btn').forEach(b => {
+        b.classList.remove('selecionado');
+        if (b.hasAttribute('aria-pressed')) b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('selecionado');
+      if (btn.hasAttribute('aria-pressed')) btn.setAttribute('aria-pressed', 'true');
       respostas[campo] = btn.textContent.replace(/^[A-D]/,'').trim();
+      if (campo === 'investimento') respostas.investimento_aceito = btn.dataset.value;
+      if (campo === 'faturamento') {
+        delete respostas.investimento;
+        delete respostas.investimento_aceito;
+        document.querySelectorAll('#qs-6 .opcao-btn').forEach(b => {
+          b.classList.remove('selecionado');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        document.getElementById('btn-av-6').disabled = true;
+        delete respostas.dor;
+        document.querySelectorAll('#qs-5 .opcao-btn').forEach(b => b.classList.remove('selecionado'));
+        document.getElementById('btn-av-5').disabled = true;
+        atualizarProgresso(passoAtual);
+      }
       const btnAv = document.getElementById('btn-av-' + passoAtual);
       if (btnAv) btnAv.disabled = false;
     }
@@ -1781,11 +1811,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     async function enviarQuiz() {
+      if (respostas.faturamento === 'Até R$30 mil') {
+        if (passoAtual !== 6) {
+          return;
+        }
+        if (!respostas.investimento_aceito) return;
+        if (respostas.investimento_aceito === 'nao') {
+          window.location.href = 'nao-lead.html';
+          return;
+        }
+      }
+
       respostas.nome     = document.getElementById('q-nome').value.trim();
       respostas.whatsapp = document.getElementById('q-wpp').value.trim();
       respostas.empresa  = document.getElementById('q-empresa').value.trim();
 
-      const btn = document.getElementById('btn-av-5');
+      const btn = document.getElementById('btn-av-' + passoAtual);
       btn.textContent = 'Enviando...';
       btn.disabled = true;
 
